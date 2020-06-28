@@ -10,7 +10,7 @@ import Foundation
 
 struct Endpoint {
     
-    let path: String
+    private let path: String
     
     var url: URL? {
         var components = URLComponents()

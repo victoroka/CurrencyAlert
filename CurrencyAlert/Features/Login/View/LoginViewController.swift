@@ -142,6 +142,7 @@ final class LoginViewController: UIViewController {
         guard let password =  passwordTextField.text else { return }
         if !email.isEmpty && !password.isEmpty {
             if email.isValidEmail {
+                CustomActivityIndicator.shared.showProgressView()
                 let user = UserLoginViewModel(email: emailTextField.text!, password: passwordTextField.text!)
                 viewModel.userLoginViewModel = user
                 viewModel.login()
@@ -163,10 +164,12 @@ extension LoginViewController: LoginViewModelDelegate {
         let viewModel = CurrenciesListViewModel(networkingService: NetworkingAPI())
         let currenciesListViewController = CurrenciesListViewController(viewModel: viewModel)
         let homeViewController = UINavigationController(rootViewController: currenciesListViewController)
+        CustomActivityIndicator.shared.hideProgressView()
         presentInFullScreen(homeViewController, animated: true)
     }
     
     func loginFailure() {
+        CustomActivityIndicator.shared.hideProgressView()
         print("Login Failure")
     }
     

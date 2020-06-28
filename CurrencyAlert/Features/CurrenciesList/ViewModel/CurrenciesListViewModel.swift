@@ -8,40 +8,32 @@
 
 import Foundation
 
+// MARK: Currencies View Model Delegate Protocol
+protocol CurrenciesListViewModelDelegate {
+    func fetchCurrenciesSuccess(currencies: [CurrencyViewModel])
+    func fetchCurrenciesFailure()
+}
+
 // MARK: Currencies List View Model
 final class CurrenciesListViewModel {
     
     private let networkingService: NetworkingService
-    private var currentSearchNetworkTask: URLSessionDataTask?
-    
-    var isRefreshing: ((Bool) -> Void)?
-    var didUpdateCurrencies: (([CurrencyViewModel]) -> Void)?
-    var didSelectCurrency: ((Int) -> Void)?
-    
-    private(set) var currencies: [Currency] = [Currency]() {
-        didSet {
-            didUpdateCurrencies?(currencies.map { CurrencyViewModel(currency: $0) })
-        }
-    }
+    var delegate: CurrenciesListViewModelDelegate?
     
     init(networkingService: NetworkingService) {
         self.networkingService = networkingService
     }
     
-    func ready() {
-        isRefreshing?(true)
+    func fetch() {
         networkingService.fetchCurrencies(Endpoint.build(for: Constants.Request.Dev.currenciesListPath)) { [weak self] (result) in
             switch result {
             case .success(let fetchedCurrencies):
-                self?.finishFetching(with: fetchedCurrencies)
+                let currencies = fetchedCurrencies.map { CurrencyViewModel(currency: $0) }
+                self?.delegate?.fetchCurrenciesSuccess(currencies: currencies)
             case .failure(let error):
                 print(error.localizedDescription)
+                self?.delegate?.fetchCurrenciesFailure()
             }
         }
-    }
-    
-    private func finishFetching(with currencies: [Currency]) {
-        isRefreshing?(false)
-        self.currencies = currencies
     }
 }

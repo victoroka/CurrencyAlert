@@ -28,7 +28,7 @@ final class CurrenciesListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.ready()
+        fetchCurrencies()
     }
     
     override func viewDidLoad() {
@@ -40,18 +40,12 @@ final class CurrenciesListViewController: UIViewController {
     }
     
     private func setupViewModel() {
-        viewModel.isRefreshing = { loading in
-            // TODO: Implement activity indicator
-            // UIApplication.shared.isNetworkActivityIndicatorVisible = loading
-        }
-        
-        viewModel.didUpdateCurrencies = { [weak self] currencies in
-            guard let strongSelf = self else { return }
-            strongSelf.tableViewData = currencies
-            DispatchQueue.main.async {
-                strongSelf.tableView.reloadData()
-            }
-        }
+        viewModel.delegate = self
+    }
+    
+    private func fetchCurrencies() {
+        CustomActivityIndicator.shared.showProgressView()
+        viewModel.fetch()
     }
     
     private func setupTableView() {
@@ -68,6 +62,23 @@ final class CurrenciesListViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
+}
+
+// MARK: Currencies List View Model Delegate
+extension CurrenciesListViewController: CurrenciesListViewModelDelegate {
+    
+    func fetchCurrenciesSuccess(currencies: [CurrencyViewModel]) {
+        tableViewData = currencies
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        CustomActivityIndicator.shared.hideProgressView()
+    }
+    
+    func fetchCurrenciesFailure() {
+        CustomActivityIndicator.shared.hideProgressView()
+    }
+    
 }
 
 // MARK: TableViewDelegate Protocol
