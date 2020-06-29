@@ -41,6 +41,9 @@
 		8429061A24A78BD2006CD409 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429060E24A78BD2006CD409 /* UITextField+Extension.swift */; };
 		8429061B24A78BD2006CD409 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429061024A78BD2006CD409 /* CodeView.swift */; };
 		84CB2FB224A80F56007D3A6B /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB2FB124A80F56007D3A6B /* CustomActivityIndicator.swift */; };
+		84F29CCD24AA78B600C69211 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F29CCC24AA78B600C69211 /* Validator.swift */; };
+		84F29CCF24AA78D400C69211 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F29CCE24AA78D400C69211 /* Rule.swift */; };
+		84F29CD124AA7BED00C69211 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F29CD024AA7BED00C69211 /* InputField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +97,9 @@
 		8429060E24A78BD2006CD409 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		8429061024A78BD2006CD409 /* CodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		84CB2FB124A80F56007D3A6B /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
+		84F29CCC24AA78B600C69211 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		84F29CCE24AA78D400C69211 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		84F29CD024AA7BED00C69211 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		96F6D3789D61B120324A3F26 /* Pods-CurrencyAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyAlert.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyAlert/Pods-CurrencyAlert.debug.xcconfig"; sourceTree = "<group>"; };
 		CB48C91AA606907CB0B51D22 /* Pods-CurrencyAlertTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyAlertTests.release.xcconfig"; path = "Target Support Files/Pods-CurrencyAlertTests/Pods-CurrencyAlertTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -293,6 +299,7 @@
 		8429060124A78BD2006CD409 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				84F29CCB24AA789E00C69211 /* Validator */,
 				8429060224A78BD2006CD409 /* Constants */,
 				8429060424A78BD2006CD409 /* Network */,
 				8429060924A78BD2006CD409 /* Extensions */,
@@ -339,6 +346,16 @@
 				8429061024A78BD2006CD409 /* CodeView.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		84F29CCB24AA789E00C69211 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				84F29CCC24AA78B600C69211 /* Validator.swift */,
+				84F29CCE24AA78D400C69211 /* Rule.swift */,
+				84F29CD024AA7BED00C69211 /* InputField.swift */,
+			);
+			path = Validator;
 			sourceTree = "<group>";
 		};
 		A9B93B100523660B815B500E /* Frameworks */ = {
@@ -520,6 +537,7 @@
 				8429061824A78BD2006CD409 /* UIViewController+Extension.swift in Sources */,
 				842905F924A78BC1006CD409 /* Currency.swift in Sources */,
 				842905FA24A78BC1006CD409 /* CurrencyCardTableViewCell.swift in Sources */,
+				84F29CCF24AA78D400C69211 /* Rule.swift in Sources */,
 				8429061B24A78BD2006CD409 /* CodeView.swift in Sources */,
 				8429061424A78BD2006CD409 /* NetworkError.swift in Sources */,
 				842905F524A78BC1006CD409 /* CreateAccountStrings.swift in Sources */,
@@ -539,6 +557,7 @@
 				842905F424A78BC1006CD409 /* CreateAccountResponse.swift in Sources */,
 				8429061624A78BD2006CD409 /* UIFont+Extension.swift in Sources */,
 				842905FE24A78BC1006CD409 /* UserLoginViewModel.swift in Sources */,
+				84F29CCD24AA78B600C69211 /* Validator.swift in Sources */,
 				8429061124A78BD2006CD409 /* Constants.swift in Sources */,
 				842905F624A78BC1006CD409 /* CreateAccountViewController.swift in Sources */,
 				842905F724A78BC1006CD409 /* CurrenciesListViewModel.swift in Sources */,
@@ -546,6 +565,7 @@
 				84CB2FB224A80F56007D3A6B /* CustomActivityIndicator.swift in Sources */,
 				842905B324A78B15006CD409 /* AppDelegate.swift in Sources */,
 				842905B524A78B15006CD409 /* SceneDelegate.swift in Sources */,
+				84F29CD124AA7BED00C69211 /* InputField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

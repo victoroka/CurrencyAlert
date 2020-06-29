@@ -17,6 +17,7 @@ enum LoginStrings: String {
     case signInButtonTitle = "ENTRAR"
     case dontHaveAnAccountLabelText = "ainda não é cadastrado?"
     case goToSignUpButtonTitle = "CADASTRE-SE"
+    case alertOkButtonLabel = "OK"
     
     case emailPostProperty = "email"
     case passwordPostProperty = "password"

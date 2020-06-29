@@ -12,6 +12,9 @@ final class LoginViewController: UIViewController {
 
     private let viewModel: LoginViewModel
     
+    private let validator = Validator()
+    private var inputFields = [InputField]()
+    
     // MARK: Screen Components
     private var labelStack: UIStackView = {
         let stackView = UIStackView(frame: .zero)
@@ -125,6 +128,7 @@ final class LoginViewController: UIViewController {
         setupView()
         setupViewModel()
         hideKeyboardWhenTappedAround()
+        setupTextFields()
     }
     
     private func setupViewModel() {
@@ -134,19 +138,51 @@ final class LoginViewController: UIViewController {
     private func setupTextFields() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        inputFields.append(InputField(textField: emailTextField, type: .email, rules: [.notEmpty]))
+        inputFields.append(InputField(textField: passwordTextField, type: .password, rules: [.notEmpty]))
+    }
+    
+    private func showAlert(with message: String) {
+        let alertController = UIAlertController(title: "Falha no login", message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: LoginStrings.alertOkButtonLabel.rawValue, style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func validateInputFields() -> Bool {
+        var validation = true
+        for field in inputFields {
+            field.isValid = validator.validate(inputField: field, with: field.rules)
+            animateField(textField: field.textField, valid: field.isValid)
+            if !field.isValid {
+                validation = false
+            }
+        }
+        return validation
+    }
+    
+    private func animateField(textField: UITextField, valid: Bool) {
+        if valid {
+            UIView.animate(withDuration: 1.0) {
+                textField.backgroundColor = .defaultLightGray
+                textField.layer.borderWidth = 0.0
+                textField.borderStyle = .none
+            }
+        } else {
+            UIView.animate(withDuration: 1.0) {
+                textField.layer.borderWidth = 1.0
+                textField.layer.borderColor = UIColor.red.withAlphaComponent(0.6).cgColor
+                textField.backgroundColor = UIColor.red.withAlphaComponent(0.2)
+            }
+        }
     }
     
     @objc private func signInAction(sender: UIButton!) {
-        // TODO: Implement login validation
-        guard let email = emailTextField.text else { return }
-        guard let password =  passwordTextField.text else { return }
-        if !email.isEmpty && !password.isEmpty {
-            if email.isValidEmail {
-                CustomActivityIndicator.shared.showProgressView()
-                let user = UserLoginViewModel(email: emailTextField.text!, password: passwordTextField.text!)
-                viewModel.userLoginViewModel = user
-                viewModel.login()
-            }
+        if validateInputFields() {
+            CustomActivityIndicator.shared.showProgressView()
+            let user = UserLoginViewModel(email: emailTextField.text!, password: passwordTextField.text!)
+            viewModel.userLoginViewModel = user
+            viewModel.login()
         }
     }
     
@@ -170,7 +206,7 @@ extension LoginViewController: LoginViewModelDelegate {
     
     func loginFailure() {
         CustomActivityIndicator.shared.hideProgressView()
-        print("Login Failure")
+        showAlert(with: "Confira suas credenciais")
     }
     
 }
