@@ -9,7 +9,7 @@
 import Foundation
 
 struct Rule {
-    /// Return nil if matches, true otherwise
+    /// Return true if matches, false otherwise
     let check: (String) -> Bool?
     
     static let notEmpty = Rule(check: {

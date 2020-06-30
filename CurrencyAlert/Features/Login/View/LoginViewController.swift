@@ -11,8 +11,6 @@ import UIKit
 final class LoginViewController: UIViewController {
 
     private let viewModel: LoginViewModel
-    
-    private let validator = Validator()
     private var inputFields = [InputField]()
     
     // MARK: Screen Components
@@ -149,36 +147,8 @@ final class LoginViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    private func validateInputFields() -> Bool {
-        var validation = true
-        for field in inputFields {
-            field.isValid = validator.validate(inputField: field, with: field.rules)
-            animateField(textField: field.textField, valid: field.isValid)
-            if !field.isValid {
-                validation = false
-            }
-        }
-        return validation
-    }
-    
-    private func animateField(textField: UITextField, valid: Bool) {
-        if valid {
-            UIView.animate(withDuration: 1.0) {
-                textField.backgroundColor = .defaultLightGray
-                textField.layer.borderWidth = 0.0
-                textField.borderStyle = .none
-            }
-        } else {
-            UIView.animate(withDuration: 1.0) {
-                textField.layer.borderWidth = 1.0
-                textField.layer.borderColor = UIColor.red.withAlphaComponent(0.6).cgColor
-                textField.backgroundColor = UIColor.red.withAlphaComponent(0.2)
-            }
-        }
-    }
-    
     @objc private func signInAction(sender: UIButton!) {
-        if validateInputFields() {
+        if validate(fields: inputFields) {
             CustomActivityIndicator.shared.showProgressView()
             let user = UserLoginViewModel(email: emailTextField.text!, password: passwordTextField.text!)
             viewModel.userLoginViewModel = user

@@ -25,4 +25,18 @@ extension UIViewController {
         view.endEditing(true)
     }
     
+    func validate(fields: [InputField]) -> Bool {
+        let validator = Validator()
+        var validation = true
+        
+        for field in fields {
+            field.isValid = validator.validate(inputField: field, with: field.rules)
+            field.textField.animate(for: field.isValid)
+            if !field.isValid {
+                validation = false
+            }
+        }
+        return validation
+    }
+    
 }
