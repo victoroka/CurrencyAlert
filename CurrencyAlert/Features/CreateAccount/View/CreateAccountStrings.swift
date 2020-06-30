@@ -18,6 +18,7 @@ enum CreateAccountStrings: String {
     case phonePlaceholder = "celular (opcional)"
     case repeatPasswordPlaceholder = "repita a senha"
     case signUpButtonTitle = "CADASTRAR"
+    case userRegisterSuccessMessage = "Usuário cadastrado com sucesso!"
     
     case firstNamePostProperty = "first_name"
     case lastNamePostProperty = "last_name"

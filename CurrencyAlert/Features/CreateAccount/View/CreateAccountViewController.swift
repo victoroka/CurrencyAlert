@@ -193,6 +193,15 @@ final class CreateAccountViewController: UIViewController {
             viewModel.register()
         }
     }
+    
+    private func showAlertAndDismiss(with message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: LoginStrings.alertOkButtonLabel.rawValue, style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 // MARK: Text Field Delegate Protocol
@@ -213,6 +222,7 @@ extension CreateAccountViewController: CreateAccountViewModelDelegate {
     
     func registerSuccess() {
         CustomActivityIndicator.shared.hideProgressView()
+        showAlertAndDismiss(with: CreateAccountStrings.userRegisterSuccessMessage.rawValue)
     }
     
     func registerFailure() {
