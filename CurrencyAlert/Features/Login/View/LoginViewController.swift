@@ -138,7 +138,7 @@ final class LoginViewController: UIViewController {
     private func setupTextFields() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        inputFields.append(InputField(textField: emailTextField, type: .email, rules: [.notEmpty]))
+        inputFields.append(InputField(textField: emailTextField, type: .email, rules: [.validEmail, .notEmpty]))
         inputFields.append(InputField(textField: passwordTextField, type: .password, rules: [.notEmpty]))
     }
     
