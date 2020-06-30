@@ -8,19 +8,18 @@
 
 import Foundation
 
+// MARK: Login View Model Delegate Protocol
 protocol LoginViewModelDelegate {
     func loginSuccess()
-    func loginFailure()
+    func loginFailure(error: String)
 }
 
 // MARK: Login View Model
 final class LoginViewModel {
     
     private let networkingService: NetworkingService
-    var delegate: LoginViewModelDelegate?
     var userLoginViewModel: UserLoginViewModel?
-    
-    var isLoading: ((Bool) -> Void)?
+    var delegate: LoginViewModelDelegate?
     
     init(networkingService: NetworkingService) {
         self.networkingService = networkingService
@@ -38,9 +37,9 @@ final class LoginViewModel {
                     loginDelegate.loginSuccess()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error.message)
                 DispatchQueue.main.async {
-                    loginDelegate.loginFailure()
+                    loginDelegate.loginFailure(error: error.message)
                 }
             }
         }

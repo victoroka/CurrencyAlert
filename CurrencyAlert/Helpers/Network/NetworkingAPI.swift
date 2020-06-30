@@ -11,7 +11,7 @@ import Foundation
 protocol NetworkingService {
     @discardableResult func fetchCurrencies(_ endpoint: Endpoint, completion: @escaping (Result<[Currency], NetworkError>) -> Void) -> URLSessionDataTask?
     @discardableResult func register(user: UserCreateViewModel, _ endpoint: Endpoint, completion: @escaping (Result<CreateAccountResponse, NetworkError>) -> Void) -> URLSessionDataTask?
-    @discardableResult func login(user: UserLoginViewModel, _ endpoint: Endpoint, completion: @escaping (Result<CreateAccountResponse, NetworkError>) -> Void) -> URLSessionDataTask?
+    @discardableResult func login(user: UserLoginViewModel, _ endpoint: Endpoint, completion: @escaping (Result<LoginResponse, LoginResponse>) -> Void) -> URLSessionDataTask?
 }
 
 final class NetworkingAPI: NetworkingService {
@@ -102,10 +102,10 @@ final class NetworkingAPI: NetworkingService {
     }
     
     @discardableResult
-    func login(user: UserLoginViewModel, _ endpoint: Endpoint, completion: @escaping (Result<CreateAccountResponse, NetworkError>) -> Void) -> URLSessionDataTask? {
+    func login(user: UserLoginViewModel, _ endpoint: Endpoint, completion: @escaping (Result<LoginResponse, LoginResponse>) -> Void) -> URLSessionDataTask? {
         
         guard let url = endpoint.url else {
-            completion(.failure(.badUrl))
+            completion(.failure(LoginResponse(message: Constants.loginBadUrlError)))
             return nil
         }
         
@@ -122,24 +122,31 @@ final class NetworkingAPI: NetworkingService {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
             print(error.localizedDescription)
-            completion(.failure(.mappingError))
+            completion(.failure(LoginResponse(message: Constants.loginMappingError)))
         }
         
         let task = session.dataTask(with: request) { (data, response, error) in
             if data == nil {
-                completion(.failure(.emptyResponseDataError))
+                completion(.failure(LoginResponse(message: Constants.loginEmptyResponseError)))
             }
             
             let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
             if 200 == statusCode {
                 do {
-                    let decodedResponseMessage = try JSONDecoder().decode(CreateAccountResponse.self, from: data!)
+                    let decodedResponseMessage = try JSONDecoder().decode(LoginResponse.self, from: data!)
                     completion(.success(decodedResponseMessage))
                 } catch {
-                    completion(.failure(.mappingError))
+                    completion(.failure(LoginResponse(message: Constants.loginMappingError)))
+                }
+            } else if 401 == statusCode {
+                do {
+                    let decodedResponseMessage = try JSONDecoder().decode(LoginResponse.self, from: data!)
+                    completion(.failure(LoginResponse(message: decodedResponseMessage.message)))
+                } catch {
+                    completion(.failure(LoginResponse(message: Constants.loginMappingError)))
                 }
             } else {
-                completion(.failure(NetworkHelper.getErrorDescription(for: statusCode)))
+                completion(.failure(LoginResponse(message: Constants.loginGenericError)))
             }
         }
         task.resume()

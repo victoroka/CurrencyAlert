@@ -11,6 +11,7 @@ import UIKit
 final class CreateAccountViewController: UIViewController {
 
     private let viewModel: CreateAccountViewModel
+    private var inputFields = [InputField]()
     
     // MARK: Screen Components
     private lazy var swipeIndicatorView: UIView = {
@@ -157,8 +158,13 @@ final class CreateAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupViewModel()
         setupTextFields()
         hideKeyboardWhenTappedAround()
+    }
+    
+    private func setupViewModel() {
+        viewModel.delegate = self
     }
     
     private func setupTextFields() {
@@ -168,6 +174,12 @@ final class CreateAccountViewController: UIViewController {
         passwordTextField.delegate = self
         repeatPasswordTextField.delegate = self
         phoneTextField.delegate = self
+        
+        inputFields.append(InputField(textField: firstNameTextField, type: .firstName, rules: [.notEmpty]))
+        inputFields.append(InputField(textField: lastNameTextField, type: .lastName, rules: [.notEmpty]))
+        inputFields.append(InputField(textField: emailTextField, type: .email, rules: [.validEmail, .notEmpty]))
+        inputFields.append(InputField(textField: passwordTextField, type: .password, rules: [.notEmpty]))
+        inputFields.append(InputField(textField: repeatPasswordTextField, type: .repeatPassword, rules: [.notEmpty]))
     }
     
     @objc private func dismissButtonAction() {
@@ -175,9 +187,11 @@ final class CreateAccountViewController: UIViewController {
     }
     
     @objc private func signUpAction() {
-        // TODO: Implement sign up function
-        viewModel.userCreateViewModel = UserCreateViewModel(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, phone: phoneTextField.text!)
-        viewModel.register()
+        if validate(fields: inputFields) && confirm(passwordTextField, repeatPasswordTextField) {
+            CustomActivityIndicator.shared.showProgressView()
+            viewModel.userCreateViewModel = UserCreateViewModel(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, phone: phoneTextField.text!)
+            viewModel.register()
+        }
     }
 }
 
@@ -190,6 +204,19 @@ extension CreateAccountViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+}
+
+// MARK: Create Account View Model Protocol
+extension CreateAccountViewController: CreateAccountViewModelDelegate {
+    
+    func registerSuccess() {
+        CustomActivityIndicator.shared.hideProgressView()
+    }
+    
+    func registerFailure() {
+        CustomActivityIndicator.shared.hideProgressView()
     }
     
 }

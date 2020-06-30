@@ -17,6 +17,10 @@ struct Constants {
     static let AUTH_KEY = "Auth"
     
     static let initFatalErrorDefaultMessage = "init(coder:) has not been implemented"
+    static let loginMappingError = "mapping error"
+    static let loginBadUrlError = "bad URL error"
+    static let loginEmptyResponseError = "empty response error"
+    static let loginGenericError = "login failure"
     
     struct Request {
         static let apiHeaderField = "x-api-key"

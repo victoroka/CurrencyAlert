@@ -39,4 +39,13 @@ extension UIViewController {
         return validation
     }
     
+    func confirm(_ inputField: UITextField, _ inputFieldConfirmation: UITextField) -> Bool {
+        let validator = Validator()
+        let confirmation = validator.confirm(inputField, inputFieldConfirmation)
+
+        inputField.animate(for: confirmation)
+        inputFieldConfirmation.animate(for: confirmation)
+        return confirmation
+    }
+    
 }

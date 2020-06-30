@@ -8,13 +8,18 @@
 
 import Foundation
 
+// MARK: Create Account View Model Protocol
+protocol CreateAccountViewModelDelegate {
+    func registerSuccess()
+    func registerFailure()
+}
+
 // MARK: Create Account View Model
 final class CreateAccountViewModel {
     
     private let networkingService: NetworkingService
     var userCreateViewModel: UserCreateViewModel?
-    
-    var isLoading: ((Bool) -> Void)?
+    var delegate: CreateAccountViewModelDelegate?
     
     init(networkingService: NetworkingService) {
         self.networkingService = networkingService
@@ -22,19 +27,20 @@ final class CreateAccountViewModel {
     
     func register() {
         guard let user = userCreateViewModel else { return }
-        isLoading?(true)
+        guard let registerDelegate = self.delegate else { return }
         networkingService.register(user: user, Endpoint.build(for: Constants.Request.Dev.registerUserPath)) { [weak self] (result) in
             switch result {
             case .success(let response):
                 print(response.message)
-                self?.finishRegister()
+                DispatchQueue.main.async {
+                    registerDelegate.registerSuccess()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    registerDelegate.registerFailure()
+                }
             }
         }
-    }
-    
-    private func finishRegister() {
-        isLoading?(false)
     }
 }

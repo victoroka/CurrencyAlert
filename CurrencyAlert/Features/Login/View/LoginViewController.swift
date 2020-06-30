@@ -141,7 +141,7 @@ final class LoginViewController: UIViewController {
     }
     
     private func showAlert(with message: String) {
-        let alertController = UIAlertController(title: "Falha no login", message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: LoginStrings.alertOkButtonLabel.rawValue, style: .default, handler: nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
@@ -174,9 +174,9 @@ extension LoginViewController: LoginViewModelDelegate {
         presentInFullScreen(homeViewController, animated: true)
     }
     
-    func loginFailure() {
+    func loginFailure(error: String) {
         CustomActivityIndicator.shared.hideProgressView()
-        showAlert(with: "Confira suas credenciais")
+        showAlert(with: error)
     }
     
 }

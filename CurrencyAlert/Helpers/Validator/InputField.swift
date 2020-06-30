@@ -11,6 +11,7 @@ import UIKit
 enum InputFieldType {
     case email
     case password
+    case repeatPassword
     case firstName
     case lastName
     case phone

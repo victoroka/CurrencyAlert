@@ -13,13 +13,13 @@ extension UITextField {
     /// Changes the appearance of the TextField if valid or invalid
     func animate(for validation: Bool) {
         if validation {
-            UIView.animate(withDuration: 0.7) {
+            UIView.animate(withDuration: 0.6) {
                 self.backgroundColor = .defaultLightGray
                 self.layer.borderWidth = 0.0
                 self.borderStyle = .none
             }
         } else {
-            UIView.animate(withDuration: 0.7) {
+            UIView.animate(withDuration: 0.6) {
                 self.layer.borderWidth = 1.0
                 self.layer.borderColor = UIColor.red.withAlphaComponent(0.6).cgColor
                 self.backgroundColor = UIColor.red.withAlphaComponent(0.2)

@@ -21,4 +21,8 @@ class Validator {
         return isValid
     }
     
+    func confirm(_ inputField: UITextField, _ inputFieldConfirmation: UITextField) -> Bool {
+        return inputField.text == inputFieldConfirmation.text
+    }
+    
 }

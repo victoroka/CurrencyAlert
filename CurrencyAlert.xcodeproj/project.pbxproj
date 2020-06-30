@@ -44,6 +44,7 @@
 		84F29CCD24AA78B600C69211 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F29CCC24AA78B600C69211 /* Validator.swift */; };
 		84F29CCF24AA78D400C69211 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F29CCE24AA78D400C69211 /* Rule.swift */; };
 		84F29CD124AA7BED00C69211 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F29CD024AA7BED00C69211 /* InputField.swift */; };
+		84F29CD324AB865000C69211 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F29CD224AB865000C69211 /* LoginResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		84F29CCC24AA78B600C69211 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		84F29CCE24AA78D400C69211 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		84F29CD024AA7BED00C69211 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		84F29CD224AB865000C69211 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		96F6D3789D61B120324A3F26 /* Pods-CurrencyAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyAlert.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyAlert/Pods-CurrencyAlert.debug.xcconfig"; sourceTree = "<group>"; };
 		CB48C91AA606907CB0B51D22 /* Pods-CurrencyAlertTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyAlertTests.release.xcconfig"; path = "Target Support Files/Pods-CurrencyAlertTests/Pods-CurrencyAlertTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,6 +285,7 @@
 		842905ED24A78BC1006CD409 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84F29CD224AB865000C69211 /* LoginResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				8429061324A78BD2006CD409 /* NetworkingAPI.swift in Sources */,
 				842905FF24A78BC1006CD409 /* LoginStrings.swift in Sources */,
 				842905FC24A78BC1006CD409 /* CurrenciesListStrings.swift in Sources */,
+				84F29CD324AB865000C69211 /* LoginResponse.swift in Sources */,
 				842905F424A78BC1006CD409 /* CreateAccountResponse.swift in Sources */,
 				8429061624A78BD2006CD409 /* UIFont+Extension.swift in Sources */,
 				842905FE24A78BC1006CD409 /* UserLoginViewModel.swift in Sources */,
