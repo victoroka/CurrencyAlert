@@ -26,16 +26,16 @@ final class CurrenciesListViewController: UIViewController {
         fatalError(Constants.initFatalErrorDefaultMessage)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupNavigationBar()
+        setupTableView()
+        setupView()
         fetchCurrencies()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
-        setupTableView()
-        setupView()
         setupViewModel()
     }
     

@@ -22,6 +22,14 @@ struct Constants {
     static let loginEmptyResponseError = "empty response error"
     static let loginGenericError = "login failure"
     
+    struct TabBar {
+        static let addAlertIconImageName = "add_alert"
+        static let alertsIconImageName = "alerts"
+        static let profileIconImageName = "profile"
+        static let alertsItemTitle = "alertas"
+        static let profileItemTitle = "perfil"
+    }
+    
     struct Request {
         static let apiHeaderField = "x-api-key"
         static let authorizationHeaderField = "Authorization"

@@ -40,6 +40,9 @@
 		8429061924A78BD2006CD409 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429060D24A78BD2006CD409 /* String+Extension.swift */; };
 		8429061A24A78BD2006CD409 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429060E24A78BD2006CD409 /* UITextField+Extension.swift */; };
 		8429061B24A78BD2006CD409 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429061024A78BD2006CD409 /* CodeView.swift */; };
+		8436F65B24B4036400D5D764 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F65A24B4036400D5D764 /* CustomTabBarController.swift */; };
+		8436F65F24B404F600D5D764 /* CreateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F65E24B404F600D5D764 /* CreateAlertViewController.swift */; };
+		8436F66224B40A8100D5D764 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F66124B40A8100D5D764 /* UserProfileViewController.swift */; };
 		84CB2FB224A80F56007D3A6B /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB2FB124A80F56007D3A6B /* CustomActivityIndicator.swift */; };
 		84F29CCD24AA78B600C69211 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F29CCC24AA78B600C69211 /* Validator.swift */; };
 		84F29CCF24AA78D400C69211 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F29CCE24AA78D400C69211 /* Rule.swift */; };
@@ -97,6 +100,9 @@
 		8429060D24A78BD2006CD409 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		8429060E24A78BD2006CD409 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		8429061024A78BD2006CD409 /* CodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		8436F65A24B4036400D5D764 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		8436F65E24B404F600D5D764 /* CreateAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewController.swift; sourceTree = "<group>"; };
+		8436F66124B40A8100D5D764 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		84CB2FB124A80F56007D3A6B /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		84F29CCC24AA78B600C69211 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		84F29CCE24AA78D400C69211 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
@@ -183,6 +189,8 @@
 		842905D424A78BC1006CD409 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8436F66024B40A6700D5D764 /* UserProfile */,
+				8436F65C24B404A000D5D764 /* CreateAlert */,
 				842905D524A78BC1006CD409 /* CreateAccount */,
 				842905DF24A78BC1006CD409 /* CurrenciesList */,
 				842905E924A78BC1006CD409 /* Login */,
@@ -302,6 +310,7 @@
 		8429060124A78BD2006CD409 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8436F65924B4032800D5D764 /* CocoaTouch */,
 				84F29CCB24AA789E00C69211 /* Validator */,
 				8429060224A78BD2006CD409 /* Constants */,
 				8429060424A78BD2006CD409 /* Network */,
@@ -349,6 +358,46 @@
 				8429061024A78BD2006CD409 /* CodeView.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8436F65924B4032800D5D764 /* CocoaTouch */ = {
+			isa = PBXGroup;
+			children = (
+				8436F65A24B4036400D5D764 /* CustomTabBarController.swift */,
+			);
+			path = CocoaTouch;
+			sourceTree = "<group>";
+		};
+		8436F65C24B404A000D5D764 /* CreateAlert */ = {
+			isa = PBXGroup;
+			children = (
+				8436F65D24B404DD00D5D764 /* View */,
+			);
+			path = CreateAlert;
+			sourceTree = "<group>";
+		};
+		8436F65D24B404DD00D5D764 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8436F65E24B404F600D5D764 /* CreateAlertViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8436F66024B40A6700D5D764 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				8436F66324B40A8500D5D764 /* View */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		8436F66324B40A8500D5D764 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8436F66124B40A8100D5D764 /* UserProfileViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		84F29CCB24AA789E00C69211 /* Validator */ = {
@@ -549,6 +598,7 @@
 				842905FD24A78BC1006CD409 /* LoginViewModel.swift in Sources */,
 				8429061924A78BD2006CD409 /* String+Extension.swift in Sources */,
 				842905F824A78BC1006CD409 /* CurrencyViewModel.swift in Sources */,
+				8436F65B24B4036400D5D764 /* CustomTabBarController.swift in Sources */,
 				8429061224A78BD2006CD409 /* NetworkHelper.swift in Sources */,
 				8429061A24A78BD2006CD409 /* UITextField+Extension.swift in Sources */,
 				842905F224A78BC1006CD409 /* UserCreateViewModel.swift in Sources */,
@@ -561,6 +611,7 @@
 				842905F424A78BC1006CD409 /* CreateAccountResponse.swift in Sources */,
 				8429061624A78BD2006CD409 /* UIFont+Extension.swift in Sources */,
 				842905FE24A78BC1006CD409 /* UserLoginViewModel.swift in Sources */,
+				8436F66224B40A8100D5D764 /* UserProfileViewController.swift in Sources */,
 				84F29CCD24AA78B600C69211 /* Validator.swift in Sources */,
 				8429061124A78BD2006CD409 /* Constants.swift in Sources */,
 				842905F624A78BC1006CD409 /* CreateAccountViewController.swift in Sources */,
@@ -569,6 +620,7 @@
 				84CB2FB224A80F56007D3A6B /* CustomActivityIndicator.swift in Sources */,
 				842905B324A78B15006CD409 /* AppDelegate.swift in Sources */,
 				842905B524A78B15006CD409 /* SceneDelegate.swift in Sources */,
+				8436F65F24B404F600D5D764 /* CreateAlertViewController.swift in Sources */,
 				84F29CD124AA7BED00C69211 /* InputField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
