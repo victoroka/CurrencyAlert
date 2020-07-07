@@ -7,19 +7,30 @@
 //
 
 import UIKit
-import SnapKit
 
 class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        delegate = self
+        setupTabBarViewControllers()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
-        
+        setupMiddleButton()
+    }
+    
+    private func setupTabBarViewControllers() {
         guard let alertsImage = UIImage(named: Constants.TabBar.alertsIconImageName) else { return }
         let resizedAlertsImage = resizeImage(image: alertsImage, targetSize: CGSize(width: 35, height: 35))
-        let viewModel = CurrenciesListViewModel(networkingService: NetworkingAPI())
-        let currenciesListViewController = CurrenciesListViewController(viewModel: viewModel)
-        currenciesListViewController.tabBarItem = UITabBarItem(title: Constants.TabBar.alertsItemTitle, image: resizedAlertsImage, tag: 0)
+        let viewModel = AlertListViewModel(networkingService: NetworkingAPI())
+        let alertListViewController = AlertListViewController(viewModel: viewModel)
+        alertListViewController.tabBarItem = UITabBarItem(title: Constants.TabBar.alertsItemTitle, image: resizedAlertsImage, tag: 0)
         
         let createAlertViewController = CreateAlertViewController()
         createAlertViewController.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 1)
@@ -29,14 +40,11 @@ class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
         let userProfileViewController = UserProfileViewController()
         userProfileViewController.tabBarItem =  UITabBarItem(title: Constants.TabBar.profileItemTitle, image: resizedProfileImage, tag: 2)
         
-        let tabBarList = [currenciesListViewController, createAlertViewController, userProfileViewController]
+        let tabBarList = [alertListViewController, createAlertViewController, userProfileViewController]
         viewControllers = tabBarList
-        
-        setupMiddleButton()
     }
     
     private func setupMiddleButton() {
-        
         guard let image = UIImage(named: Constants.TabBar.addAlertIconImageName) else { return }
         let middleBtn = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-25, y: -20, width: 60, height: 60))
         let buttonImage = resizeImage(image: image, targetSize: CGSize(width: 35, height: 35))
@@ -90,7 +98,6 @@ class CustomTabBar: UITabBar {
         shapeLayer.fillColor = UIColor.white.cgColor
         shapeLayer.lineWidth = 1.0
         
-        //The below 4 lines are for shadow above the bar. you can skip them if you do not want a shadow
         shapeLayer.shadowOffset = CGSize(width:0, height:0)
         shapeLayer.shadowRadius = 10
         shapeLayer.shadowColor = UIColor.gray.cgColor
@@ -108,12 +115,12 @@ class CustomTabBar: UITabBar {
         self.addShape()
     }
     
-    func createPath() -> CGPath {
+    private func createPath() -> CGPath {
         let height: CGFloat = 37.0
         let path = UIBezierPath()
         let centerWidth = self.frame.width / 2
-        path.move(to: CGPoint(x: 0, y: 0)) // start top left
-        path.addLine(to: CGPoint(x: (centerWidth - height * 2), y: 0)) // the beginning of the trough
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: (centerWidth - height * 2), y: 0))
 
         path.addCurve(to: CGPoint(x: centerWidth, y: height),
         controlPoint1: CGPoint(x: (centerWidth - 30), y: 0), controlPoint2: CGPoint(x: centerWidth - 35, y: height))

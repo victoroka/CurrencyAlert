@@ -46,10 +46,7 @@ open class CustomActivityIndicator {
 
     // MARK: Display Avtivity Indicator
     /// Adds the progress views to the top most view
-    open func showProgressView() {
-        guard let topView = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.rootViewController?.view else {
-            return
-        }
+    open func showProgressView(on topView: UIView) {
         
         containerView.backgroundColor = self.backgroundColor
         progressView.backgroundColor = self.forgroundColor

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CurrenciesListStrings: String {
+enum AlertListStrings: String {
     
     case navigationBarTitle = "Cotações"
     case cellReuseIdentifier = "cell"

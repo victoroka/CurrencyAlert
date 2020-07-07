@@ -8,16 +8,16 @@
 
 import UIKit
 
-final class CurrenciesListViewController: UIViewController {
+final class AlertListViewController: UIViewController {
     
-    private let viewModel: CurrenciesListViewModel
+    private let viewModel: AlertListViewModel
     private var tableViewData: [CurrencyViewModel]?
     
     // MARK: Screen Components
     private let tableView = UITableView()
     
     // MARK: View Controller Functions
-    init(viewModel: CurrenciesListViewModel) {
+    init(viewModel: AlertListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,14 +29,14 @@ final class CurrenciesListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupNavigationBar()
-        setupTableView()
-        setupView()
         fetchCurrencies()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewModel()
+        setupView()
+        setupTableView()
     }
     
     private func setupViewModel() {
@@ -44,7 +44,7 @@ final class CurrenciesListViewController: UIViewController {
     }
     
     private func fetchCurrencies() {
-        CustomActivityIndicator.shared.showProgressView()
+        CustomActivityIndicator.shared.showProgressView(on: view)
         viewModel.fetch()
     }
     
@@ -52,11 +52,11 @@ final class CurrenciesListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.register(CurrencyCardTableViewCell.self, forCellReuseIdentifier: CurrenciesListStrings.cellReuseIdentifier.rawValue)
+        tableView.register(AlertCardTableViewCell.self, forCellReuseIdentifier: AlertListStrings.cellReuseIdentifier.rawValue)
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = CurrenciesListStrings.navigationBarTitle.rawValue
+        navigationController?.navigationBar.topItem?.title = AlertListStrings.navigationBarTitle.rawValue
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple, NSAttributedString.Key.font: UIFont.defaultBold(ofSize: 32)]
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -64,8 +64,8 @@ final class CurrenciesListViewController: UIViewController {
     }
 }
 
-// MARK: Currencies List View Model Delegate
-extension CurrenciesListViewController: CurrenciesListViewModelDelegate {
+// MARK: Alert List View Model Delegate
+extension AlertListViewController: AlertListViewModelDelegate {
     
     func fetchCurrenciesSuccess(currencies: [CurrencyViewModel]) {
         tableViewData = currencies
@@ -82,16 +82,16 @@ extension CurrenciesListViewController: CurrenciesListViewModelDelegate {
 }
 
 // MARK: TableViewDelegate Protocol
-extension CurrenciesListViewController: UITableViewDelegate {}
+extension AlertListViewController: UITableViewDelegate {}
 
 // MARK: TableViewDataSource Protocol
-extension CurrenciesListViewController: UITableViewDataSource {
+extension AlertListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CurrenciesListStrings.cellReuseIdentifier.rawValue, for: indexPath) as! CurrencyCardTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AlertListStrings.cellReuseIdentifier.rawValue, for: indexPath) as! AlertCardTableViewCell
         cell.selectionStyle = .none
         cell.currencyNameLabel.text = tableViewData?[indexPath.row].name
         cell.currencyValueLabel.text = tableViewData?[indexPath.row].ask
@@ -104,7 +104,7 @@ extension CurrenciesListViewController: UITableViewDataSource {
 }
 
 // MARK: Code View Protocol
-extension CurrenciesListViewController: CodeView {
+extension AlertListViewController: CodeView {
     
     func buildViewHierarchy() {
         view.addSubview(tableView)

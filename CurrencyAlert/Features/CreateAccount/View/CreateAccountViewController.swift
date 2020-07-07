@@ -188,7 +188,7 @@ final class CreateAccountViewController: UIViewController {
     
     @objc private func signUpAction() {
         if validate(fields: inputFields) && confirm(passwordTextField, repeatPasswordTextField) {
-            CustomActivityIndicator.shared.showProgressView()
+            CustomActivityIndicator.shared.showProgressView(on: view)
             viewModel.userCreateViewModel = UserCreateViewModel(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, phone: phoneTextField.text!)
             viewModel.register()
         }

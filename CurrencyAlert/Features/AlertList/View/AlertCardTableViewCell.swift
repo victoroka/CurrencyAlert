@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CurrencyCardTableViewCell: UITableViewCell {
+final class AlertCardTableViewCell: UITableViewCell {
     
     // MARK: Cell Components
     private lazy var cardView: UIView = {
@@ -56,7 +56,7 @@ final class CurrencyCardTableViewCell: UITableViewCell {
 }
 
 // MARK: Code View Protocol
-extension CurrencyCardTableViewCell: CodeView {
+extension AlertCardTableViewCell: CodeView {
     
     func buildViewHierarchy() {
         cardView.addSubview(currencyNameLabel)

@@ -149,7 +149,7 @@ final class LoginViewController: UIViewController {
     
     @objc private func signInAction(sender: UIButton!) {
         if validate(fields: inputFields) {
-            CustomActivityIndicator.shared.showProgressView()
+            CustomActivityIndicator.shared.showProgressView(on: view)
             let user = UserLoginViewModel(email: emailTextField.text!, password: passwordTextField.text!)
             viewModel.userLoginViewModel = user
             viewModel.login()
@@ -167,9 +167,7 @@ final class LoginViewController: UIViewController {
 extension LoginViewController: LoginViewModelDelegate {
     
     func loginSuccess() {
-        let viewModel = CurrenciesListViewModel(networkingService: NetworkingAPI())
-        let currenciesListViewController = CurrenciesListViewController(viewModel: viewModel)
-        let homeViewController = UINavigationController(rootViewController: currenciesListViewController)
+        let homeViewController = UINavigationController(rootViewController: CustomTabBarController())
         CustomActivityIndicator.shared.hideProgressView()
         presentInFullScreen(homeViewController, animated: true)
     }

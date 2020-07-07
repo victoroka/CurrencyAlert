@@ -8,17 +8,17 @@
 
 import Foundation
 
-// MARK: Currencies View Model Delegate Protocol
-protocol CurrenciesListViewModelDelegate {
+// MARK: Alert List View Model Delegate Protocol
+protocol AlertListViewModelDelegate {
     func fetchCurrenciesSuccess(currencies: [CurrencyViewModel])
     func fetchCurrenciesFailure()
 }
 
-// MARK: Currencies List View Model
-final class CurrenciesListViewModel {
+// MARK: Alert List View Model
+final class AlertListViewModel {
     
     private let networkingService: NetworkingService
-    var delegate: CurrenciesListViewModelDelegate?
+    var delegate: AlertListViewModelDelegate?
     
     init(networkingService: NetworkingService) {
         self.networkingService = networkingService
