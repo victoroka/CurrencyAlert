@@ -10,6 +10,7 @@ import UIKit
 
 final class UserProfileViewController: UIViewController {
 
+    // MARK: Screen Components
     lazy var logoutButton: UIButton = {
         let button = UIButton()
         button.setTitle(UserProfileStrings.logoutButtonTitle.rawValue, for: .normal)
@@ -19,6 +20,7 @@ final class UserProfileViewController: UIViewController {
         return button
     }()
     
+    // MARK: View Controller Functions
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupNavigationBar()
@@ -59,6 +61,7 @@ final class UserProfileViewController: UIViewController {
     }
 }
 
+// MARK: Code View Protocol
 extension UserProfileViewController: CodeView {
     func buildViewHierarchy() {
         view.addSubview(logoutButton)

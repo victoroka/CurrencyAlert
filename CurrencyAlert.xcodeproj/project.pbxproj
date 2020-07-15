@@ -41,11 +41,11 @@
 		8429061A24A78BD2006CD409 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429060E24A78BD2006CD409 /* UITextField+Extension.swift */; };
 		8429061B24A78BD2006CD409 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429061024A78BD2006CD409 /* CodeView.swift */; };
 		8436F65B24B4036400D5D764 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F65A24B4036400D5D764 /* CustomTabBarController.swift */; };
-		8436F65F24B404F600D5D764 /* CreateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F65E24B404F600D5D764 /* CreateAlertViewController.swift */; };
 		8436F66224B40A8100D5D764 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F66124B40A8100D5D764 /* UserProfileViewController.swift */; };
 		8458811E24BF943C00CA3841 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458811D24BF943C00CA3841 /* Alert.swift */; };
 		8458812024BF98D600CA3841 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */; };
 		8458812224BF9B4300CA3841 /* UserProfileStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458812124BF9B4300CA3841 /* UserProfileStrings.swift */; };
+		8458812424BFC11400CA3841 /* CreateAlertPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458812324BFC11400CA3841 /* CreateAlertPopupView.swift */; };
 		84A38F3E24BE8954007BDAB4 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */; };
 		84A38F4024BE8A97007BDAB4 /* CreateAlertStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */; };
 		84A38F4324BE9C7D007BDAB4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F4224BE9C7D007BDAB4 /* Utils.swift */; };
@@ -109,11 +109,11 @@
 		8429060E24A78BD2006CD409 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		8429061024A78BD2006CD409 /* CodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		8436F65A24B4036400D5D764 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		8436F65E24B404F600D5D764 /* CreateAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewController.swift; sourceTree = "<group>"; };
 		8436F66124B40A8100D5D764 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		8458811D24BF943C00CA3841 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		8458812124BF9B4300CA3841 /* UserProfileStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileStrings.swift; sourceTree = "<group>"; };
+		8458812324BFC11400CA3841 /* CreateAlertPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertPopupView.swift; sourceTree = "<group>"; };
 		84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertStrings.swift; sourceTree = "<group>"; };
 		84A38F4224BE9C7D007BDAB4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -398,10 +398,10 @@
 		8436F65D24B404DD00D5D764 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8436F65E24B404F600D5D764 /* CreateAlertViewController.swift */,
+				8458812324BFC11400CA3841 /* CreateAlertPopupView.swift */,
+				84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */,
 				84F4DEA024B4F6CF005D99B2 /* CurrencyListViewController.swift */,
 				84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */,
-				84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -672,11 +672,11 @@
 				842905F624A78BC1006CD409 /* CreateAccountViewController.swift in Sources */,
 				84A38F3E24BE8954007BDAB4 /* CurrencyTableViewCell.swift in Sources */,
 				842905F724A78BC1006CD409 /* AlertListViewModel.swift in Sources */,
+				8458812424BFC11400CA3841 /* CreateAlertPopupView.swift in Sources */,
 				8429061724A78BD2006CD409 /* UIColor+Extension.swift in Sources */,
 				84CB2FB224A80F56007D3A6B /* CustomActivityIndicator.swift in Sources */,
 				842905B324A78B15006CD409 /* AppDelegate.swift in Sources */,
 				842905B524A78B15006CD409 /* SceneDelegate.swift in Sources */,
-				8436F65F24B404F600D5D764 /* CreateAlertViewController.swift in Sources */,
 				84F29CD124AA7BED00C69211 /* InputField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

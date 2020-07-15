@@ -12,5 +12,6 @@ enum CreateAlertStrings: String {
     
     case navigationBarTitle = "selecione a moeda"
     case cellReuseIdentifier = "currencyCell"
+    case closeButtonTitle = "fechar"
     
 }
