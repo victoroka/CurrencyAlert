@@ -12,9 +12,24 @@ final class CurrencyListViewController: UIViewController {
     
     private let viewModel: CurrencyListViewModel
     private var tableViewData: [CurrencyViewModel]?
+    private var filteredCurrencies = [CurrencyViewModel]()
+    
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty()
+    }
     
     // MARK: Screen Components
     private let tableView = UITableView()
+    
+    lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Procurar"
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.searchBarStyle = .prominent
+        return searchController
+    }()
     
     // MARK: View Controller Functions
     init(viewModel: CurrencyListViewModel) {
@@ -38,6 +53,7 @@ final class CurrencyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewModel()
+        view.backgroundColor = .white
     }
     
     private func setupViewModel() {
@@ -58,10 +74,23 @@ final class CurrencyListViewController: UIViewController {
     
     private func setupNavigationBar() {
         tabBarController?.navigationItem.title = CreateAlertStrings.navigationBarTitle.rawValue
+        tabBarController?.navigationItem.searchController = searchController
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple, NSAttributedString.Key.font: UIFont.defaultBold(ofSize: 32)]
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    private func filterContentFor(searchText: String) {
+        guard let currencies = tableViewData else { return }
+        filteredCurrencies = currencies.filter({ (currency: CurrencyViewModel) -> Bool in
+            return currency.name.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
+    private func isSearchBarEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     
 }
@@ -96,20 +125,40 @@ extension CurrencyListViewController: UITableViewDelegate {
 // MARK: TableViewDataSource Protocol
 extension CurrencyListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredCurrencies.count
+        }
         return tableViewData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let data = tableViewData else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: CreateAlertStrings.cellReuseIdentifier.rawValue, for: indexPath) as! CurrencyTableViewCell
         cell.selectionStyle = .gray
-        cell.iconLabel.text = Utils.setupIconFor(currency: tableViewData?[indexPath.row].name ?? "")
-        cell.nameLabel.text = tableViewData?[indexPath.row].name
-        cell.valueLabel.text = "R$ \(tableViewData?[indexPath.row].ask ?? "0,00")"
+        
+        let currencyViewModel: CurrencyViewModel
+        if isFiltering {
+            currencyViewModel = filteredCurrencies[indexPath.row]
+        } else {
+            currencyViewModel = data[indexPath.row]
+        }
+        
+        cell.iconLabel.text = Utils.setupIconFor(currency: currencyViewModel.name)
+        cell.nameLabel.text = currencyViewModel.name
+        cell.valueLabel.text = "R$ \(currencyViewModel.ask)"
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+}
+
+// MARK: Search Results Updating Protocol
+extension CurrencyListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentFor(searchText: searchBar.text!)
     }
 }
 
@@ -127,7 +176,5 @@ extension CurrencyListViewController: CodeView {
         }
     }
     
-    func setupAdditionalConfigurarion() {
-        view.backgroundColor = .white
-    }
+    func setupAdditionalConfigurarion() {}
 }

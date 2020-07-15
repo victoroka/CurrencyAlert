@@ -56,7 +56,8 @@ final class AlertListViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        navigationController?.navigationBar.topItem?.title = AlertListStrings.navigationBarTitle.rawValue
+        tabBarController?.navigationItem.title = AlertListStrings.navigationBarTitle.rawValue
+        tabBarController?.navigationItem.searchController = nil
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple, NSAttributedString.Key.font: UIFont.defaultBold(ofSize: 32)]
         navigationController?.navigationBar.prefersLargeTitles = true
