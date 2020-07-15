@@ -10,6 +10,8 @@ import UIKit
 
 class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
 
+    private var middleBtn = UIButton(frame: .zero)
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         delegate = self
@@ -17,7 +19,7 @@ class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(Constants.initFatalErrorDefaultMessage)
     }
     
     override func viewDidLoad() {
@@ -28,35 +30,38 @@ class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
     private func setupTabBarViewControllers() {
         guard let alertsImage = UIImage(named: Constants.TabBar.alertsIconImageName) else { return }
         let resizedAlertsImage = resizeImage(image: alertsImage, targetSize: CGSize(width: 35, height: 35))
-        let viewModel = AlertListViewModel(networkingService: NetworkingAPI())
-        let alertListViewController = AlertListViewController(viewModel: viewModel)
+        let alertListViewModel = AlertListViewModel(networkingService: NetworkingAPI())
+        let alertListViewController = AlertListViewController(viewModel: alertListViewModel)
         alertListViewController.tabBarItem = UITabBarItem(title: Constants.TabBar.alertsItemTitle, image: resizedAlertsImage, tag: 0)
         
-        let createAlertViewController = CreateAlertViewController()
-        createAlertViewController.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 1)
+        let currencyListViewModel = CurrencyListViewModel(networkingService: NetworkingAPI())
+        let currencyListViewController = CurrencyListViewController(viewModel: currencyListViewModel)
+        currencyListViewController.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 1)
         
         guard let profileImage = UIImage(named: Constants.TabBar.profileIconImageName) else { return }
         let resizedProfileImage = resizeImage(image: profileImage, targetSize: CGSize(width: 35, height: 35))
         let userProfileViewController = UserProfileViewController()
         userProfileViewController.tabBarItem =  UITabBarItem(title: Constants.TabBar.profileItemTitle, image: resizedProfileImage, tag: 2)
         
-        let tabBarList = [alertListViewController, createAlertViewController, userProfileViewController]
+        let tabBarList = [alertListViewController, currencyListViewController, userProfileViewController]
         viewControllers = tabBarList
     }
     
     private func setupMiddleButton() {
         guard let image = UIImage(named: Constants.TabBar.addAlertIconImageName) else { return }
-        let middleBtn = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-25, y: -20, width: 60, height: 60))
+        middleBtn = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-25, y: -20, width: 60, height: 60))
         let buttonImage = resizeImage(image: image, targetSize: CGSize(width: 35, height: 35))
+        let tintedButtonImage = buttonImage.withRenderingMode(.alwaysTemplate)
         
         middleBtn.backgroundColor = UIColor.systemPurple.withAlphaComponent(0.8)
         middleBtn.layer.cornerRadius = 20
-        middleBtn.setImage(buttonImage, for: .normal)
+        middleBtn.setImage(tintedButtonImage, for: .normal)
+        middleBtn.tintColor = .darkGray
         
-        self.tabBar.addSubview(middleBtn)
+        tabBar.addSubview(middleBtn)
         middleBtn.addTarget(self, action: #selector(customButtonAction), for: .touchUpInside)
 
-        self.view.layoutIfNeeded()
+        view.layoutIfNeeded()
     }
     
     @objc func customButtonAction(sender: UIButton) {
@@ -84,6 +89,26 @@ class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
         UIGraphicsEndImageContext()
 
         return newImage!
+    }
+    
+    private func setupMiddleButtonOn() {
+        middleBtn.tintColor = .systemBlue
+        view.layoutIfNeeded()
+    }
+    
+    private func setupMiddleButtonOff() {
+        middleBtn.tintColor = .gray
+        view.layoutIfNeeded()
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        let index = tabBar.items?.firstIndex(of: item)
+        switch index {
+        case 1:
+            setupMiddleButtonOn()
+        default:
+            setupMiddleButtonOff()
+        }
     }
 }
 

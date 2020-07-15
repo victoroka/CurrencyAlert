@@ -88,7 +88,5 @@ extension AlertCardTableViewCell: CodeView {
         }
     }
     
-    func setupAdditionalConfigurarion() {
-        
-    }
+    func setupAdditionalConfigurarion() {}
 }

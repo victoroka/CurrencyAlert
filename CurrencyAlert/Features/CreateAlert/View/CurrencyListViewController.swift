@@ -51,12 +51,12 @@ final class CurrencyListViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.register(AlertCardTableViewCell.self, forCellReuseIdentifier: AlertListStrings.cellReuseIdentifier.rawValue)
+        tableView.separatorStyle = .singleLine
+        tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CreateAlertStrings.cellReuseIdentifier.rawValue)
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = AlertListStrings.navigationBarTitle.rawValue
+        tabBarController?.navigationItem.title = CreateAlertStrings.navigationBarTitle.rawValue
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple, NSAttributedString.Key.font: UIFont.defaultBold(ofSize: 32)]
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -82,7 +82,11 @@ extension CurrencyListViewController: CurrencyListViewModelDelegate {
 }
 
 // MARK: TableViewDelegate Protocol
-extension CurrencyListViewController: UITableViewDelegate {}
+extension CurrencyListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
 
 // MARK: TableViewDataSource Protocol
 extension CurrencyListViewController: UITableViewDataSource {
@@ -91,15 +95,15 @@ extension CurrencyListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AlertListStrings.cellReuseIdentifier.rawValue, for: indexPath) as! AlertCardTableViewCell
-        cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: CreateAlertStrings.cellReuseIdentifier.rawValue, for: indexPath) as! CurrencyTableViewCell
+        cell.selectionStyle = .gray
         cell.currencyNameLabel.text = tableViewData?[indexPath.row].name
-        cell.currencyValueLabel.text = tableViewData?[indexPath.row].ask
+        cell.currencyValueLabel.text = "R$ \(tableViewData?[indexPath.row].ask ?? "0,00")"
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 60
     }
 }
 

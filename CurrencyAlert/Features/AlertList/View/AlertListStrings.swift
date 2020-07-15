@@ -10,7 +10,7 @@ import Foundation
 
 enum AlertListStrings: String {
     
-    case navigationBarTitle = "Cotações"
-    case cellReuseIdentifier = "cell"
+    case navigationBarTitle = "Alertas"
+    case cellReuseIdentifier = "alertCell"
     
 }
