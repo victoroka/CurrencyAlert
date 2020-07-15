@@ -26,6 +26,7 @@ final class CurrencyListViewController: UIViewController {
         fatalError(Constants.initFatalErrorDefaultMessage)
     }
     
+    // MARK: View Controller Functions
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupNavigationBar()
@@ -62,6 +63,7 @@ final class CurrencyListViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
+    
 }
 
 // MARK: Currencies List View Model Delegate
@@ -84,7 +86,10 @@ extension CurrencyListViewController: CurrencyListViewModelDelegate {
 // MARK: TableViewDelegate Protocol
 extension CurrencyListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        // TODO: Implement data transport between view controllers
+        let createAlertViewController = CreateAlertViewController()
+        present(createAlertViewController, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -97,8 +102,9 @@ extension CurrencyListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CreateAlertStrings.cellReuseIdentifier.rawValue, for: indexPath) as! CurrencyTableViewCell
         cell.selectionStyle = .gray
-        cell.currencyNameLabel.text = tableViewData?[indexPath.row].name
-        cell.currencyValueLabel.text = "R$ \(tableViewData?[indexPath.row].ask ?? "0,00")"
+        cell.iconLabel.text = Utils.setupIconFor(currency: tableViewData?[indexPath.row].name ?? "")
+        cell.nameLabel.text = tableViewData?[indexPath.row].name
+        cell.valueLabel.text = "R$ \(tableViewData?[indexPath.row].ask ?? "0,00")"
         return cell
     }
     

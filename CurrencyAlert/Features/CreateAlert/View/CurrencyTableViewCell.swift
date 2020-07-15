@@ -8,20 +8,39 @@
 
 import UIKit
 
-class CurrencyTableViewCell: UITableViewCell {
+final class CurrencyTableViewCell: UITableViewCell {
 
     // MARK: Cell Components
-    lazy var currencyNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.defaultBold(ofSize: 16)
+    private var labelStack: UIStackView = {
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .horizontal
+        stackView.alignment = .trailing
+        stackView.spacing = 15
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
+    lazy var iconLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.defaultRegular(ofSize: 22)
         label.tintColor = .black
+        label.textAlignment = .center
         return label
     }()
     
-    lazy var currencyValueLabel: UILabel = {
-        let label = UILabel()
+    lazy var nameLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.defaultBold(ofSize: 16)
+        label.tintColor = .black
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    lazy var valueLabel: UILabel = {
+        let label = UILabel(frame: .zero)
         label.font = UIFont.defaultRegular(ofSize: 16)
         label.tintColor = .black
+        label.textAlignment = .right
         return label
     }()
     
@@ -48,21 +67,31 @@ class CurrencyTableViewCell: UITableViewCell {
 
 extension CurrencyTableViewCell: CodeView {
     func buildViewHierarchy() {
-        addSubview(currencyNameLabel)
-        addSubview(currencyValueLabel)
+        labelStack.addArrangedSubview(iconLabel)
+        labelStack.addArrangedSubview(nameLabel)
+        labelStack.addArrangedSubview(valueLabel)
+        addSubview(labelStack)
     }
     
     func setupConstraints() {
-        currencyNameLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.left.equalToSuperview().offset(40)
-            make.height.equalTo(28)
+        labelStack.snp.makeConstraints { (make) in
+            make.top.bottom.equalToSuperview()
+            make.left.equalToSuperview().offset(20)
+            make.right.equalToSuperview().inset(20)
         }
         
-        currencyValueLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.right.equalToSuperview().inset(40)
-            make.height.equalTo(28)
+        iconLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.15)
+        }
+        
+        nameLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.40)
+        }
+        
+        valueLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
         }
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
+final class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private var middleBtn = UIButton(frame: .zero)
     
@@ -112,7 +112,7 @@ class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 }
 
-class CustomTabBar: UITabBar {
+final class CustomTabBar: UITabBar {
     
     private var shapeLayer: CALayer?
     
