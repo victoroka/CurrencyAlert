@@ -1,9 +1,9 @@
 //
 //  CurrencyViewModel.swift
-//  CurrencyChecker
+//  CurrencyAlert
 //
-//  Created by Victor Oka on 20/06/20.
-//  Copyright © 2020 Victor Oka. All rights reserved.
+//  Created by Victor Oka on 15/07/20.
+//  Copyright © 2020 Alerta Câmbio. All rights reserved.
 //
 
 import Foundation

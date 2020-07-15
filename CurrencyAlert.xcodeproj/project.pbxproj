@@ -20,7 +20,7 @@
 		842905F524A78BC1006CD409 /* CreateAccountStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905DD24A78BC1006CD409 /* CreateAccountStrings.swift */; };
 		842905F624A78BC1006CD409 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905DE24A78BC1006CD409 /* CreateAccountViewController.swift */; };
 		842905F724A78BC1006CD409 /* AlertListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E124A78BC1006CD409 /* AlertListViewModel.swift */; };
-		842905F824A78BC1006CD409 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E224A78BC1006CD409 /* CurrencyViewModel.swift */; };
+		842905F824A78BC1006CD409 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E224A78BC1006CD409 /* AlertViewModel.swift */; };
 		842905F924A78BC1006CD409 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E424A78BC1006CD409 /* Currency.swift */; };
 		842905FA24A78BC1006CD409 /* AlertCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E624A78BC1006CD409 /* AlertCardTableViewCell.swift */; };
 		842905FB24A78BC1006CD409 /* AlertListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E724A78BC1006CD409 /* AlertListViewController.swift */; };
@@ -43,6 +43,9 @@
 		8436F65B24B4036400D5D764 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F65A24B4036400D5D764 /* CustomTabBarController.swift */; };
 		8436F65F24B404F600D5D764 /* CreateAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F65E24B404F600D5D764 /* CreateAlertViewController.swift */; };
 		8436F66224B40A8100D5D764 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436F66124B40A8100D5D764 /* UserProfileViewController.swift */; };
+		8458811E24BF943C00CA3841 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458811D24BF943C00CA3841 /* Alert.swift */; };
+		8458812024BF98D600CA3841 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */; };
+		8458812224BF9B4300CA3841 /* UserProfileStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458812124BF9B4300CA3841 /* UserProfileStrings.swift */; };
 		84A38F3E24BE8954007BDAB4 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */; };
 		84A38F4024BE8A97007BDAB4 /* CreateAlertStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */; };
 		84A38F4324BE9C7D007BDAB4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F4224BE9C7D007BDAB4 /* Utils.swift */; };
@@ -85,7 +88,7 @@
 		842905DD24A78BC1006CD409 /* CreateAccountStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountStrings.swift; sourceTree = "<group>"; };
 		842905DE24A78BC1006CD409 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		842905E124A78BC1006CD409 /* AlertListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertListViewModel.swift; sourceTree = "<group>"; };
-		842905E224A78BC1006CD409 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
+		842905E224A78BC1006CD409 /* AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
 		842905E424A78BC1006CD409 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		842905E624A78BC1006CD409 /* AlertCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertCardTableViewCell.swift; sourceTree = "<group>"; };
 		842905E724A78BC1006CD409 /* AlertListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertListViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +111,9 @@
 		8436F65A24B4036400D5D764 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		8436F65E24B404F600D5D764 /* CreateAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewController.swift; sourceTree = "<group>"; };
 		8436F66124B40A8100D5D764 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		8458811D24BF943C00CA3841 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
+		8458812124BF9B4300CA3841 /* UserProfileStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileStrings.swift; sourceTree = "<group>"; };
 		84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertStrings.swift; sourceTree = "<group>"; };
 		84A38F4224BE9C7D007BDAB4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -258,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				842905E124A78BC1006CD409 /* AlertListViewModel.swift */,
-				842905E224A78BC1006CD409 /* CurrencyViewModel.swift */,
+				842905E224A78BC1006CD409 /* AlertViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 		842905E324A78BC1006CD409 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8458811D24BF943C00CA3841 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -411,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				8436F66124B40A8100D5D764 /* UserProfileViewController.swift */,
+				8458812124BF9B4300CA3841 /* UserProfileStrings.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -419,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				84F4DEA224B4F8B6005D99B2 /* CurrencyListViewModel.swift */,
+				8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -631,23 +640,26 @@
 				84F29CCF24AA78D400C69211 /* Rule.swift in Sources */,
 				8429061B24A78BD2006CD409 /* CodeView.swift in Sources */,
 				8429061424A78BD2006CD409 /* NetworkError.swift in Sources */,
+				8458811E24BF943C00CA3841 /* Alert.swift in Sources */,
 				842905F524A78BC1006CD409 /* CreateAccountStrings.swift in Sources */,
 				842905FB24A78BC1006CD409 /* AlertListViewController.swift in Sources */,
 				8429060024A78BC1006CD409 /* LoginViewController.swift in Sources */,
 				842905FD24A78BC1006CD409 /* LoginViewModel.swift in Sources */,
 				8429061924A78BD2006CD409 /* String+Extension.swift in Sources */,
 				84F4DEA324B4F8B6005D99B2 /* CurrencyListViewModel.swift in Sources */,
-				842905F824A78BC1006CD409 /* CurrencyViewModel.swift in Sources */,
+				842905F824A78BC1006CD409 /* AlertViewModel.swift in Sources */,
 				8436F65B24B4036400D5D764 /* CustomTabBarController.swift in Sources */,
 				8429061224A78BD2006CD409 /* NetworkHelper.swift in Sources */,
 				84A38F4324BE9C7D007BDAB4 /* Utils.swift in Sources */,
 				8429061A24A78BD2006CD409 /* UITextField+Extension.swift in Sources */,
+				8458812024BF98D600CA3841 /* CurrencyViewModel.swift in Sources */,
 				842905F224A78BC1006CD409 /* UserCreateViewModel.swift in Sources */,
 				84A38F4024BE8A97007BDAB4 /* CreateAlertStrings.swift in Sources */,
 				8429061524A78BD2006CD409 /* Endpoint.swift in Sources */,
 				842905F124A78BC1006CD409 /* CreateAccountViewModel.swift in Sources */,
 				8429061324A78BD2006CD409 /* NetworkingAPI.swift in Sources */,
 				842905FF24A78BC1006CD409 /* LoginStrings.swift in Sources */,
+				8458812224BF9B4300CA3841 /* UserProfileStrings.swift in Sources */,
 				842905FC24A78BC1006CD409 /* AlertListStrings.swift in Sources */,
 				84F29CD324AB865000C69211 /* LoginResponse.swift in Sources */,
 				842905F424A78BC1006CD409 /* CreateAccountResponse.swift in Sources */,

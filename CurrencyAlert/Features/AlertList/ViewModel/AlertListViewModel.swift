@@ -10,8 +10,8 @@ import Foundation
 
 // MARK: Alert List View Model Delegate Protocol
 protocol AlertListViewModelDelegate {
-    func fetchCurrenciesSuccess(currencies: [CurrencyViewModel])
-    func fetchCurrenciesFailure()
+    func fetchAlertsSuccess(alerts: [AlertViewModel])
+    func fetchAlertsFailure()
 }
 
 // MARK: Alert List View Model
@@ -25,14 +25,14 @@ final class AlertListViewModel {
     }
     
     func fetch() {
-        networkingService.fetchCurrencies(Endpoint.build(for: Constants.Request.Dev.currenciesListPath)) { [weak self] (result) in
+        networkingService.fetchAlerts(Endpoint.build(for: Constants.Request.Dev.alertListPath)) { [weak self] (result) in
             switch result {
-            case .success(let fetchedCurrencies):
-                let currencies = fetchedCurrencies.map { CurrencyViewModel(currency: $0) }
-                self?.delegate?.fetchCurrenciesSuccess(currencies: currencies)
+            case .success(let fetchedAlerts):
+                let alerts = fetchedAlerts.map { AlertViewModel(alert: $0) }
+                self?.delegate?.fetchAlertsSuccess(alerts: alerts)
             case .failure(let error):
                 print(error.localizedDescription)
-                self?.delegate?.fetchCurrenciesFailure()
+                self?.delegate?.fetchAlertsFailure()
             }
         }
     }

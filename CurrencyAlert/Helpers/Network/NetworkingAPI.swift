@@ -12,6 +12,7 @@ protocol NetworkingService {
     @discardableResult func fetchCurrencies(_ endpoint: Endpoint, completion: @escaping (Result<[Currency], NetworkError>) -> Void) -> URLSessionDataTask?
     @discardableResult func register(user: UserCreateViewModel, _ endpoint: Endpoint, completion: @escaping (Result<CreateAccountResponse, NetworkError>) -> Void) -> URLSessionDataTask?
     @discardableResult func login(user: UserLoginViewModel, _ endpoint: Endpoint, completion: @escaping (Result<LoginResponse, LoginResponse>) -> Void) -> URLSessionDataTask?
+    @discardableResult func fetchAlerts(_ endpoint: Endpoint, completion: @escaping (Result<[Alert], NetworkError>) -> Void) -> URLSessionDataTask?
 }
 
 final class NetworkingAPI: NetworkingService {
@@ -149,6 +150,41 @@ final class NetworkingAPI: NetworkingService {
                 completion(.failure(LoginResponse(message: Constants.loginGenericError)))
             }
         }
+        task.resume()
+        
+        return task
+    }
+    
+    @discardableResult
+    func fetchAlerts(_ endpoint: Endpoint, completion: @escaping (Result<[Alert], NetworkError>) -> Void) -> URLSessionDataTask? {
+        
+        guard let url = endpoint.url else {
+            completion(.failure(.badUrl))
+            return nil
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = Constants.Request.Method.GET
+        request.setValue(Constants.API_KEY, forHTTPHeaderField: Constants.Request.apiHeaderField)
+        request.setValue(UserDefaults.standard.string(forKey: Constants.AUTH_KEY), forHTTPHeaderField: Constants.Request.authorizationHeaderField)
+        
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            if data == nil {
+                completion(.failure(.emptyResponseDataError))
+            }
+            
+            let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
+            if 200...299 ~= statusCode {
+                do {
+                    let decodedAlertList = try JSONDecoder().decode([Alert].self, from: data!)
+                    completion(.success(decodedAlertList))
+                } catch {
+                    completion(.failure(.mappingError))
+                }
+            } else {
+                completion(.failure(NetworkHelper.getErrorDescription(for: statusCode)))
+            }
+        })
         task.resume()
         
         return task

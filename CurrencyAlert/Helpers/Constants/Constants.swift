@@ -38,11 +38,14 @@ struct Constants {
             static let currenciesListPath = "/dev/currency"
             static let registerUserPath = "/dev/user"
             static let loginPath = "/dev/login"
+            static let alertListPath = "/dev/currency/alert"
         }
         
         struct Prod {
             static let currenciesListPath = "/prd/currency"
             static let registerUserPath = "/prd/user"
+            static let loginPath = "/prd/login"
+            static let alertListPath = "/prd/currency/alert"
         }
         
         struct Method {

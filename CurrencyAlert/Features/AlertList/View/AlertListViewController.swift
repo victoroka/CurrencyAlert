@@ -11,7 +11,7 @@ import UIKit
 final class AlertListViewController: UIViewController {
     
     private let viewModel: AlertListViewModel
-    private var tableViewData: [CurrencyViewModel]?
+    private var tableViewData: [AlertViewModel]?
     
     // MARK: Screen Components
     private let tableView = UITableView()
@@ -29,7 +29,7 @@ final class AlertListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupNavigationBar()
-        fetchCurrencies()
+        fetchAlerts()
     }
     
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ final class AlertListViewController: UIViewController {
         viewModel.delegate = self
     }
     
-    private func fetchCurrencies() {
+    private func fetchAlerts() {
         CustomActivityIndicator.shared.showProgressView(on: view)
         viewModel.fetch()
     }
@@ -67,15 +67,15 @@ final class AlertListViewController: UIViewController {
 // MARK: Alert List View Model Delegate
 extension AlertListViewController: AlertListViewModelDelegate {
     
-    func fetchCurrenciesSuccess(currencies: [CurrencyViewModel]) {
-        tableViewData = currencies
+    func fetchAlertsSuccess(alerts: [AlertViewModel]) {
+        tableViewData = alerts
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
         CustomActivityIndicator.shared.hideProgressView()
     }
     
-    func fetchCurrenciesFailure() {
+    func fetchAlertsFailure() {
         CustomActivityIndicator.shared.hideProgressView()
     }
     
@@ -93,8 +93,8 @@ extension AlertListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlertListStrings.cellReuseIdentifier.rawValue, for: indexPath) as! AlertCardTableViewCell
         cell.selectionStyle = .none
-        cell.currencyNameLabel.text = tableViewData?[indexPath.row].name
-        cell.currencyValueLabel.text = tableViewData?[indexPath.row].ask
+        //cell.currencyNameLabel.text = tableViewData?[indexPath.row].name
+        //cell.currencyValueLabel.text = tableViewData?[indexPath.row].ask
         return cell
     }
     

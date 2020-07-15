@@ -10,7 +10,7 @@ import Foundation
 
 enum CreateAlertStrings: String {
     
-    case navigationBarTitle = "Cotações"
+    case navigationBarTitle = "selecione a moeda"
     case cellReuseIdentifier = "currencyCell"
     
 }
