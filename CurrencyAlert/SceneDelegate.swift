@@ -23,9 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let viewController = LoginViewController(viewModel: viewModel)
             window.rootViewController = viewController
         } else {
-//            let viewModel = CurrenciesListViewModel(networkingService: NetworkingAPI())
-//            let currenciesListViewController = CurrenciesListViewController(viewModel: viewModel)
-//            let viewController = UINavigationController(rootViewController: currenciesListViewController)
             window.rootViewController = UINavigationController(rootViewController: CustomTabBarController())
         }
         
