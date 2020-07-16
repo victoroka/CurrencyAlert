@@ -92,10 +92,11 @@ extension AlertListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let data = tableViewData?[indexPath.row] else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: AlertListStrings.cellReuseIdentifier.rawValue, for: indexPath) as! AlertCardTableViewCell
         cell.selectionStyle = .none
-        //cell.currencyNameLabel.text = tableViewData?[indexPath.row].name
-        //cell.currencyValueLabel.text = tableViewData?[indexPath.row].ask
+        cell.currencyNameLabel.text = data.code
+        cell.currencyValueLabel.text = "R$ \(data.value)"
         return cell
     }
     
