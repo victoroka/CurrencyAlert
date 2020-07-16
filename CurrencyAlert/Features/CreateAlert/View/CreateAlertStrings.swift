@@ -14,4 +14,8 @@ enum CreateAlertStrings: String {
     case cellReuseIdentifier = "currencyCell"
     case closeButtonTitle = "fechar"
     
+    case codePostProperty = "code"
+    case valuePostProperty = "alert_value"
+    case currentCurrencyValuePostProperty = "current_value"
+    
 }

@@ -86,6 +86,6 @@ extension CreateAlertPopupView: CodeView {
     }
     
     func setupAdditionalConfigurarion() {
-        backgroundColor = UIColor.lightGray.withAlphaComponent(0.6)
+        backgroundColor = UIColor.lightGray.withAlphaComponent(0.75)
     }
 }

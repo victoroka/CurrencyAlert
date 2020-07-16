@@ -46,6 +46,8 @@
 		8458812024BF98D600CA3841 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */; };
 		8458812224BF9B4300CA3841 /* UserProfileStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458812124BF9B4300CA3841 /* UserProfileStrings.swift */; };
 		8458812424BFC11400CA3841 /* CreateAlertPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458812324BFC11400CA3841 /* CreateAlertPopupView.swift */; };
+		848D2D5724BFD118008919C9 /* AlertRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D2D5624BFD118008919C9 /* AlertRequestResponse.swift */; };
+		848D2D5924BFD16A008919C9 /* CreateAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D2D5824BFD16A008919C9 /* CreateAlertViewModel.swift */; };
 		84A38F3E24BE8954007BDAB4 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */; };
 		84A38F4024BE8A97007BDAB4 /* CreateAlertStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */; };
 		84A38F4324BE9C7D007BDAB4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F4224BE9C7D007BDAB4 /* Utils.swift */; };
@@ -114,6 +116,8 @@
 		8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		8458812124BF9B4300CA3841 /* UserProfileStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileStrings.swift; sourceTree = "<group>"; };
 		8458812324BFC11400CA3841 /* CreateAlertPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertPopupView.swift; sourceTree = "<group>"; };
+		848D2D5624BFD118008919C9 /* AlertRequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRequestResponse.swift; sourceTree = "<group>"; };
+		848D2D5824BFD16A008919C9 /* CreateAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewModel.swift; sourceTree = "<group>"; };
 		84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertStrings.swift; sourceTree = "<group>"; };
 		84A38F4224BE9C7D007BDAB4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -428,6 +432,7 @@
 			children = (
 				84F4DEA224B4F8B6005D99B2 /* CurrencyListViewModel.swift */,
 				8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */,
+				848D2D5824BFD16A008919C9 /* CreateAlertViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				842905E424A78BC1006CD409 /* Currency.swift */,
+				848D2D5624BFD118008919C9 /* AlertRequestResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -640,12 +646,14 @@
 				84F29CCF24AA78D400C69211 /* Rule.swift in Sources */,
 				8429061B24A78BD2006CD409 /* CodeView.swift in Sources */,
 				8429061424A78BD2006CD409 /* NetworkError.swift in Sources */,
+				848D2D5724BFD118008919C9 /* AlertRequestResponse.swift in Sources */,
 				8458811E24BF943C00CA3841 /* Alert.swift in Sources */,
 				842905F524A78BC1006CD409 /* CreateAccountStrings.swift in Sources */,
 				842905FB24A78BC1006CD409 /* AlertListViewController.swift in Sources */,
 				8429060024A78BC1006CD409 /* LoginViewController.swift in Sources */,
 				842905FD24A78BC1006CD409 /* LoginViewModel.swift in Sources */,
 				8429061924A78BD2006CD409 /* String+Extension.swift in Sources */,
+				848D2D5924BFD16A008919C9 /* CreateAlertViewModel.swift in Sources */,
 				84F4DEA324B4F8B6005D99B2 /* CurrencyListViewModel.swift in Sources */,
 				842905F824A78BC1006CD409 /* AlertViewModel.swift in Sources */,
 				8436F65B24B4036400D5D764 /* CustomTabBarController.swift in Sources */,
