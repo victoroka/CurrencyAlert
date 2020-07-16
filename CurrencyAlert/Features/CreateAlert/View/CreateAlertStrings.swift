@@ -13,6 +13,11 @@ enum CreateAlertStrings: String {
     case navigationBarTitle = "selecione a moeda"
     case cellReuseIdentifier = "currencyCell"
     case closeButtonTitle = "fechar"
+    case createAlertButtonTitle = "avisar"
+    case defaultinputCurrencyCode = "R$"
+    case valueInputPlaceholder = "0,00"
+    case messageLabelPrefix = "Me avise quando"
+    case messageLabelSufix = "chegar a:"
     
     case codePostProperty = "code"
     case valuePostProperty = "alert_value"

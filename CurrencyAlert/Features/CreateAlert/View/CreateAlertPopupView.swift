@@ -10,6 +10,9 @@ import UIKit
 
 final class CreateAlertPopupView: UIView {
     
+    private var currencyCode: String
+    private var currencyCurrentValue: String
+    
     // MARK: View Components
     lazy var container: UIView = {
         let containerView = UIView()
@@ -27,10 +30,68 @@ final class CreateAlertPopupView: UIView {
         return button
     }()
     
+    lazy var messageLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.defaultRegular(ofSize: 17)
+        label.tintColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private var inputStack: UIStackView = {
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .horizontal
+        stackView.alignment = .trailing
+        stackView.spacing = 10
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
+    lazy var currencyCodeLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text = CreateAlertStrings.defaultinputCurrencyCode.rawValue
+        label.font = UIFont.defaultBold(ofSize: 18)
+        label.tintColor = .black
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var valueTextField: UITextField = {
+        let textField = UITextField(frame: .zero)
+        //textField.delegate = self
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        textField.backgroundColor = .defaultLightGray
+        textField.borderStyle = .none
+        textField.layer.cornerRadius = 6
+        textField.font = UIFont.defaultRegular(ofSize: 20)
+        textField.placeholder = CreateAlertStrings.valueInputPlaceholder.rawValue
+        textField.setLeftPaddingPoints(15)
+        textField.setRightPaddingPoints(15)
+        textField.keyboardType = .numberPad
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        return textField
+    }()
+    
+    private lazy var createAlertButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(CreateAlertStrings.createAlertButtonTitle.rawValue, for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .systemPurple
+        button.titleLabel?.font = UIFont.defaultBold(ofSize: 14)
+        button.layer.cornerRadius = 25
+        button.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: View Functions
-    override init(frame: CGRect) {
+    init(code: String, currentValue: String, name: String, frame: CGRect) {
+        currencyCode = code
+        currencyCurrentValue = currentValue
         super.init(frame: frame)
         self.frame = UIScreen.main.bounds
+        messageLabel.text = "\(CreateAlertStrings.messageLabelPrefix.rawValue) \(name) \(CreateAlertStrings.messageLabelSufix.rawValue)"
         setupView()
         animateIn()
     }
@@ -48,6 +109,7 @@ final class CreateAlertPopupView: UIView {
                 self.removeFromSuperview()
             }
         }
+        valueTextField.resignFirstResponder()
     }
     
     @objc private func animateIn() {
@@ -57,6 +119,17 @@ final class CreateAlertPopupView: UIView {
             self.container.transform = .identity
             self.alpha = 1
         })
+        valueTextField.becomeFirstResponder()
+    }
+    
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        if let amountString = textField.text?.currencyInputMask() {
+            textField.text = amountString
+        }
+    }
+    
+    @objc private func createAlert() {
+        // TODO: Implement View Model Call
     }
     
     @objc private func closeButtonPressed() {
@@ -69,20 +142,61 @@ extension CreateAlertPopupView: CodeView {
     func buildViewHierarchy() {
         addSubview(container)
         container.addSubview(closeButton)
+        container.addSubview(messageLabel)
+        
+        inputStack.addArrangedSubview(currencyCodeLabel)
+        inputStack.addArrangedSubview(valueTextField)
+        container.addSubview(inputStack)
+        
+        container.addSubview(createAlertButton)
     }
     
     func setupConstraints() {
+        
         container.snp.makeConstraints { (make) in
-            make.centerY.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().multipliedBy(0.85)
+            make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.8)
-            make.height.equalToSuperview().multipliedBy(0.45)
+            make.height.equalToSuperview().multipliedBy(0.30)
         }
+        
         closeButton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(15)
+            make.top.equalToSuperview().offset(12)
             make.right.equalToSuperview().inset(20)
-            make.height.equalTo(40)
+            make.height.equalTo(30)
             make.width.equalTo(55)
         }
+        
+        messageLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(closeButton.snp.bottom)
+            make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().inset(25)
+            make.height.equalToSuperview().multipliedBy(0.22)
+        }
+        
+        currencyCodeLabel.snp.makeConstraints { (make) in
+            make.top.bottom.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.15)
+        }
+        
+        valueTextField.snp.makeConstraints { (make) in
+            make.top.bottom.equalToSuperview()
+        }
+        
+        inputStack.snp.makeConstraints { (make) in
+            make.top.equalTo(messageLabel.snp.bottom).offset(10)
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalToSuperview().multipliedBy(0.20)
+            make.centerX.equalToSuperview()
+        }
+        
+        createAlertButton.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().inset(16)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.4)
+            make.height.equalToSuperview().multipliedBy(0.2)
+        }
+        
     }
     
     func setupAdditionalConfigurarion() {

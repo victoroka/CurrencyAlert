@@ -115,8 +115,8 @@ extension CurrencyListViewController: CurrencyListViewModelDelegate {
 // MARK: TableViewDelegate Protocol
 extension CurrencyListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Implement data transport between view controllers
-        let popupView = CreateAlertPopupView()
+        guard let data = tableViewData else { return }
+        let popupView = CreateAlertPopupView(code: data[indexPath.row].code, currentValue: data[indexPath.row].ask, name: data[indexPath.row].name, frame: view.frame)
         view.addSubview(popupView)
         tableView.deselectRow(at: indexPath, animated: true)
     }
