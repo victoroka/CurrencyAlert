@@ -206,11 +206,11 @@ final class NetworkingAPI: NetworkingService {
             return nil
         }
         
-        let parameters = [
+        let parameters: [String : Any] = [
             CreateAlertStrings.codePostProperty.rawValue: alert.code,
             CreateAlertStrings.currentCurrencyValuePostProperty.rawValue: alert.currentCurrencyValue,
             CreateAlertStrings.valuePostProperty.rawValue: alert.value
-            ] as [String : Any]
+        ]
         
         var request = URLRequest(url: url)
         request.httpMethod = Constants.Request.Method.POST

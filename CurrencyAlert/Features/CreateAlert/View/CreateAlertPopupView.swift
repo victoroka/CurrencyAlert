@@ -12,12 +12,19 @@ final class CreateAlertPopupView: UIView {
     
     private var currencyCode: String
     private var currencyCurrentValue: String
+    private let createAlertPopupViewModel: CreateAlertPopupViewModel
+    
+    private var inputFields = [InputField]()
     
     // MARK: View Components
     lazy var container: UIView = {
         let containerView = UIView()
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 24
+        containerView.layer.shadowColor = UIColor.darkGray.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+        containerView.layer.shadowRadius = 6.0
+        containerView.layer.shadowOpacity = 0.8
         return containerView
     }()
     
@@ -85,18 +92,29 @@ final class CreateAlertPopupView: UIView {
     }()
     
     // MARK: View Functions
-    init(code: String, currentValue: String, name: String, frame: CGRect) {
+    init(code: String, currentValue: String, name: String, viewModel: CreateAlertPopupViewModel, frame: CGRect) {
         currencyCode = code
         currencyCurrentValue = currentValue
+        createAlertPopupViewModel = viewModel
         super.init(frame: frame)
         self.frame = UIScreen.main.bounds
         messageLabel.text = "\(CreateAlertStrings.messageLabelPrefix.rawValue)\n\(name) \(CreateAlertStrings.messageLabelSufix.rawValue)"
         setupView()
+        setupViewModel()
+        setupInputField()
         animateIn()
     }
     
     required init?(coder: NSCoder) {
         fatalError(Constants.initFatalErrorDefaultMessage)
+    }
+    
+    private func setupViewModel() {
+        createAlertPopupViewModel.delegate = self
+    }
+    
+    private func setupInputField() {
+        inputFields.append(InputField(textField: valueTextField, type: .currency, rules: [.notEmpty]))
     }
     
     @objc private func animateOut() {
@@ -128,11 +146,28 @@ final class CreateAlertPopupView: UIView {
     }
     
     @objc private func createAlert() {
-        // TODO: Implement View Model Call
+        if validate(fields: inputFields) {
+            let alertValue = valueTextField.text!.requestFormat().floatValue
+            createAlertPopupViewModel.create(alert: CreateAlertViewModel(code: currencyCode, value: alertValue, currentCurrencyValue: currencyCurrentValue.floatValue))
+        }
     }
     
     @objc private func closeButtonPressed() {
         animateOut()
+    }
+}
+
+// MARK: Create Alert Popup View Model Delegate
+extension CreateAlertPopupView: CreateAlertPopupViewModelDelegate {
+    func createAlertSuccess(message: String) {
+        // TODO: Show message
+        print("create alert success")
+        animateOut()
+    }
+    
+    func createAlertFailure(error: String) {
+        // TODO: Show message
+        print("create alert failure")
     }
 }
 
@@ -184,7 +219,7 @@ extension CreateAlertPopupView: CodeView {
         
         inputStack.snp.makeConstraints { (make) in
             make.top.equalTo(messageLabel.snp.bottom).offset(10)
-            make.width.equalToSuperview().multipliedBy(0.5)
+            make.width.equalToSuperview().multipliedBy(0.55)
             make.height.equalToSuperview().multipliedBy(0.20)
             make.centerX.equalToSuperview()
         }

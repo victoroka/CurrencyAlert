@@ -15,6 +15,7 @@ enum InputFieldType {
     case firstName
     case lastName
     case phone
+    case currency
 }
 
 class InputField {

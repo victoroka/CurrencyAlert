@@ -10,6 +10,10 @@ import Foundation
 
 extension String {
     
+    var floatValue: Float {
+        return (self as NSString).floatValue
+    }
+    
     func toBase64() -> String {
         return Data(self.utf8).base64EncodedString()
     }
@@ -35,6 +39,12 @@ extension String {
         }
 
         return formatter.string(from: number)!
+    }
+    
+    func requestFormat() -> String {
+        var filteredString = self.replacingOccurrences(of: ".", with: "")
+        filteredString = filteredString.replacingOccurrences(of: ",", with: ".")
+        return filteredString
     }
     
 }

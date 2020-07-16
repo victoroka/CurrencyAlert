@@ -116,7 +116,8 @@ extension CurrencyListViewController: CurrencyListViewModelDelegate {
 extension CurrencyListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let data = tableViewData else { return }
-        let popupView = CreateAlertPopupView(code: data[indexPath.row].code, currentValue: data[indexPath.row].ask, name: data[indexPath.row].name, frame: view.frame)
+        let viewModel = CreateAlertPopupViewModel(networkingService: NetworkingAPI())
+        let popupView = CreateAlertPopupView(code: data[indexPath.row].code, currentValue: data[indexPath.row].ask, name: data[indexPath.row].name, viewModel: viewModel, frame: view.frame)
         view.addSubview(popupView)
         tableView.deselectRow(at: indexPath, animated: true)
     }

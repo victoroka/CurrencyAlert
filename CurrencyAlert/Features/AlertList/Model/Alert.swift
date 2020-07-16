@@ -18,7 +18,7 @@ struct Alert: Codable {
     enum CodingKeys: String, CodingKey {
         case code = "code"
         case value = "alert_value"
-        case currentCurrencyValue = "currency_value"
+        case currentCurrencyValue = "current_value"
         case dateCreated = "date_created"
     }
 }
