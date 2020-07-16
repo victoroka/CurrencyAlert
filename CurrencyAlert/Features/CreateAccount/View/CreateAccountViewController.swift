@@ -208,7 +208,8 @@ final class CreateAccountViewController: UIViewController {
 extension CreateAccountViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x: 0, y: (textField.superview?.frame.origin.y)!), animated: true)
+        let point = textField.frame.origin
+        scrollView.setContentOffset(point, animated: true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -319,5 +320,6 @@ extension CreateAccountViewController: CodeView {
     
     func setupAdditionalConfigurarion() {
         view.backgroundColor = .white
+        scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 100)
     }
 }
