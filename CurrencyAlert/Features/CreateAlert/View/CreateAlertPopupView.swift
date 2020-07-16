@@ -51,7 +51,7 @@ final class CreateAlertPopupView: UIView {
     lazy var currencyCodeLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = CreateAlertStrings.defaultinputCurrencyCode.rawValue
-        label.font = UIFont.defaultBold(ofSize: 18)
+        label.font = UIFont.defaultBold(ofSize: 20)
         label.tintColor = .black
         label.numberOfLines = 0
         return label
@@ -59,7 +59,6 @@ final class CreateAlertPopupView: UIView {
     
     private lazy var valueTextField: UITextField = {
         let textField = UITextField(frame: .zero)
-        //textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         textField.backgroundColor = .defaultLightGray
         textField.borderStyle = .none
@@ -79,7 +78,7 @@ final class CreateAlertPopupView: UIView {
         button.setTitle(CreateAlertStrings.createAlertButtonTitle.rawValue, for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemPurple
-        button.titleLabel?.font = UIFont.defaultBold(ofSize: 14)
+        button.titleLabel?.font = UIFont.defaultBold(ofSize: 16)
         button.layer.cornerRadius = 25
         button.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
         return button
@@ -91,7 +90,7 @@ final class CreateAlertPopupView: UIView {
         currencyCurrentValue = currentValue
         super.init(frame: frame)
         self.frame = UIScreen.main.bounds
-        messageLabel.text = "\(CreateAlertStrings.messageLabelPrefix.rawValue) \(name) \(CreateAlertStrings.messageLabelSufix.rawValue)"
+        messageLabel.text = "\(CreateAlertStrings.messageLabelPrefix.rawValue)\n\(name) \(CreateAlertStrings.messageLabelSufix.rawValue)"
         setupView()
         animateIn()
     }
@@ -157,7 +156,7 @@ extension CreateAlertPopupView: CodeView {
             make.centerY.equalToSuperview().multipliedBy(0.85)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.8)
-            make.height.equalToSuperview().multipliedBy(0.30)
+            make.height.equalToSuperview().multipliedBy(0.36)
         }
         
         closeButton.snp.makeConstraints { (make) in
@@ -168,15 +167,15 @@ extension CreateAlertPopupView: CodeView {
         }
         
         messageLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(closeButton.snp.bottom)
+            make.top.equalToSuperview().offset(30)
             make.left.equalToSuperview().offset(25)
             make.right.equalToSuperview().inset(25)
-            make.height.equalToSuperview().multipliedBy(0.22)
+            make.height.equalToSuperview().multipliedBy(0.30)
         }
         
         currencyCodeLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.15)
+            make.width.equalToSuperview().multipliedBy(0.20)
         }
         
         valueTextField.snp.makeConstraints { (make) in
@@ -194,7 +193,7 @@ extension CreateAlertPopupView: CodeView {
             make.bottom.equalToSuperview().inset(16)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.4)
-            make.height.equalToSuperview().multipliedBy(0.2)
+            make.height.equalToSuperview().multipliedBy(0.20)
         }
         
     }
