@@ -96,7 +96,9 @@ extension AlertListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlertListStrings.cellReuseIdentifier.rawValue, for: indexPath) as! AlertCardTableViewCell
         cell.selectionStyle = .none
         cell.currencyNameLabel.text = data.code
-        cell.currencyValueLabel.text = "R$ \(data.value)"
+        cell.alertValueLabel.text = "R$ \(data.value)"
+        cell.currencyValueLabel.text = "R$ \(data.currentCurrencyValue)"
+        cell.dateCreatedLabel.text = "16/06/2020 22:41"
         return cell
     }
     

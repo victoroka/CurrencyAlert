@@ -22,17 +22,47 @@ final class AlertCardTableViewCell: UITableViewCell {
         return card
     }()
     
+    lazy var currencyIconLabel: UILabel = {
+        let label = UILabel()
+        label.text = "$"
+        label.layer.masksToBounds = true
+        label.font = UIFont.defaultBold(ofSize: 26)
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = UIColor.systemPurple.withAlphaComponent(0.6)
+        return label
+    }()
+    
     lazy var currencyNameLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.font = UIFont.defaultBold(ofSize: 16)
-        label.tintColor = .black
+        label.textColor = .black
         return label
     }()
     
     lazy var currencyValueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.defaultRegular(ofSize: 16)
-        label.tintColor = .black
+        label.font = UIFont.defaultRegular(ofSize: 14)
+        label.textColor = .black
+        return label
+    }()
+    
+    lazy var alertValueLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .center
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 15
+        label.font = UIFont.defaultBold(ofSize: 16)
+        label.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.8)
+        return label
+    }()
+    
+    lazy var dateCreatedLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.defaultRegular(ofSize: 12)
+        label.textColor = .lightGray
         return label
     }()
     
@@ -40,6 +70,7 @@ final class AlertCardTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
+        currencyIconLabel.layer.cornerRadius = 20
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +90,10 @@ final class AlertCardTableViewCell: UITableViewCell {
 extension AlertCardTableViewCell: CodeView {
     
     func buildViewHierarchy() {
+        cardView.addSubview(currencyIconLabel)
         cardView.addSubview(currencyNameLabel)
+        cardView.addSubview(dateCreatedLabel)
+        cardView.addSubview(alertValueLabel)
         cardView.addSubview(currencyValueLabel)
         addSubview(cardView)
     }
@@ -73,18 +107,38 @@ extension AlertCardTableViewCell: CodeView {
             make.centerX.equalToSuperview()
         }
         
-        currencyNameLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
+        currencyIconLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
+            make.width.equalToSuperview().multipliedBy(0.22)
+            make.height.equalTo(cardView.snp.width).multipliedBy(0.22)
+            make.centerY.equalToSuperview()
+        }
+        
+        currencyNameLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(15)
+            make.left.equalTo(currencyIconLabel.snp.right).offset(15)
+            make.right.equalToSuperview().inset(20)
+            make.height.equalTo(28)
+        }
+
+        dateCreatedLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(currencyIconLabel.snp.right).offset(15)
+            make.bottom.equalToSuperview().inset(15)
             make.right.equalToSuperview().inset(20)
             make.height.equalTo(28)
         }
         
         currencyValueLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(currencyNameLabel.snp.bottom).offset(10)
-            make.left.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().inset(15)
             make.right.equalToSuperview().inset(20)
             make.height.equalTo(28)
+        }
+        
+        alertValueLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().inset(15)
+            make.right.equalToSuperview().inset(20)
+            make.height.equalTo(30)
+            make.width.equalToSuperview().multipliedBy(0.25)
         }
     }
     
