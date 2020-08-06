@@ -13,6 +13,7 @@ final class CurrencyListViewController: UIViewController {
     private let viewModel: CurrencyListViewModel
     private var tableViewData: [CurrencyViewModel]?
     private var filteredCurrencies = [CurrencyViewModel]()
+    private let tableViewRowHeight: CGFloat = 60
     
     var isFiltering: Bool {
         return searchController.isActive && !isSearchBarEmpty()
@@ -25,7 +26,7 @@ final class CurrencyListViewController: UIViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Procurar"
+        searchController.searchBar.placeholder = CreateAlertStrings.searchBarPlaceholder.rawValue
         searchController.searchBar.sizeToFit()
         searchController.searchBar.searchBarStyle = .prominent
         return searchController
@@ -121,6 +122,12 @@ extension CurrencyListViewController: UITableViewDelegate {
         view.addSubview(popupView)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let animation: TableAnimation = .moveUpWithFade(rowHeight: tableViewRowHeight, duration: 0.85, delay: 0.05)
+        let animator = TableViewAnimator(animation: animation.getAnimation())
+        animator.animate(cell: cell, at: indexPath, in: tableView)
+    }
 }
 
 // MARK: TableViewDataSource Protocol
@@ -151,7 +158,7 @@ extension CurrencyListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return tableViewRowHeight
     }
 }
 

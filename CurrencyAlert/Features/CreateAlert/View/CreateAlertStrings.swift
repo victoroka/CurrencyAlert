@@ -18,6 +18,7 @@ enum CreateAlertStrings: String {
     case valueInputPlaceholder = "0,00"
     case messageLabelPrefix = "Me avise quando"
     case messageLabelSufix = "chegar a:"
+    case searchBarPlaceholder = "Procurar"
     
     case codePostProperty = "code"
     case valuePostProperty = "alert_value"

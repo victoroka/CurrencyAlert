@@ -47,4 +47,8 @@ struct Utils {
         }
     }
     
+    static func toCurrencyString(value: Float) -> String {
+        return "R$ \(String(describing: value).replacingOccurrences(of: ".", with: ","))"
+    }
+    
 }

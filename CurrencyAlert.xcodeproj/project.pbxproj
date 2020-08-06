@@ -49,6 +49,9 @@
 		848C491224C0F7D500991B1D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C491124C0F7D500991B1D /* UIView+Extension.swift */; };
 		848D2D5724BFD118008919C9 /* AlertRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D2D5624BFD118008919C9 /* AlertRequestResponse.swift */; };
 		848D2D5924BFD16A008919C9 /* CreateAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D2D5824BFD16A008919C9 /* CreateAlertViewModel.swift */; };
+		84946F8F24D59A910053B585 /* TableViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84946F8E24D59A910053B585 /* TableViewAnimator.swift */; };
+		84946F9124D59DC90053B585 /* TableAnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84946F9024D59DC90053B585 /* TableAnimationFactory.swift */; };
+		84946F9324D5A37C0053B585 /* Tables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84946F9224D5A37C0053B585 /* Tables.swift */; };
 		84A38F3E24BE8954007BDAB4 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */; };
 		84A38F4024BE8A97007BDAB4 /* CreateAlertStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */; };
 		84A38F4324BE9C7D007BDAB4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F4224BE9C7D007BDAB4 /* Utils.swift */; };
@@ -121,6 +124,9 @@
 		848C491124C0F7D500991B1D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		848D2D5624BFD118008919C9 /* AlertRequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRequestResponse.swift; sourceTree = "<group>"; };
 		848D2D5824BFD16A008919C9 /* CreateAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewModel.swift; sourceTree = "<group>"; };
+		84946F8E24D59A910053B585 /* TableViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAnimator.swift; sourceTree = "<group>"; };
+		84946F9024D59DC90053B585 /* TableAnimationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAnimationFactory.swift; sourceTree = "<group>"; };
+		84946F9224D5A37C0053B585 /* Tables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tables.swift; sourceTree = "<group>"; };
 		84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertStrings.swift; sourceTree = "<group>"; };
 		84A38F4224BE9C7D007BDAB4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -456,6 +462,9 @@
 			isa = PBXGroup;
 			children = (
 				84A38F4224BE9C7D007BDAB4 /* Utils.swift */,
+				84946F8E24D59A910053B585 /* TableViewAnimator.swift */,
+				84946F9024D59DC90053B585 /* TableAnimationFactory.swift */,
+				84946F9224D5A37C0053B585 /* Tables.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -668,6 +677,7 @@
 				8429061224A78BD2006CD409 /* NetworkHelper.swift in Sources */,
 				84A38F4324BE9C7D007BDAB4 /* Utils.swift in Sources */,
 				8429061A24A78BD2006CD409 /* UITextField+Extension.swift in Sources */,
+				84946F9124D59DC90053B585 /* TableAnimationFactory.swift in Sources */,
 				8458812024BF98D600CA3841 /* CurrencyViewModel.swift in Sources */,
 				842905F224A78BC1006CD409 /* UserCreateViewModel.swift in Sources */,
 				84A38F4024BE8A97007BDAB4 /* CreateAlertStrings.swift in Sources */,
@@ -676,6 +686,7 @@
 				8429061324A78BD2006CD409 /* NetworkingAPI.swift in Sources */,
 				842905FF24A78BC1006CD409 /* LoginStrings.swift in Sources */,
 				8458812224BF9B4300CA3841 /* UserProfileStrings.swift in Sources */,
+				84946F9324D5A37C0053B585 /* Tables.swift in Sources */,
 				842905FC24A78BC1006CD409 /* AlertListStrings.swift in Sources */,
 				84F29CD324AB865000C69211 /* LoginResponse.swift in Sources */,
 				842905F424A78BC1006CD409 /* CreateAccountResponse.swift in Sources */,
@@ -692,6 +703,7 @@
 				8429061724A78BD2006CD409 /* UIColor+Extension.swift in Sources */,
 				84CB2FB224A80F56007D3A6B /* CustomActivityIndicator.swift in Sources */,
 				842905B324A78B15006CD409 /* AppDelegate.swift in Sources */,
+				84946F8F24D59A910053B585 /* TableViewAnimator.swift in Sources */,
 				842905B524A78B15006CD409 /* SceneDelegate.swift in Sources */,
 				84F29CD124AA7BED00C69211 /* InputField.swift in Sources */,
 			);
