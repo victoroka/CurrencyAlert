@@ -12,4 +12,5 @@ enum UserProfileStrings: String {
 
     case navigationBarTitle = "perfil"
     case logoutButtonTitle = "Logout"
+    case updateButtonTitle = "ATUALIZAR"
 }
