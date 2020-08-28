@@ -28,6 +28,8 @@ struct Constants {
     static let loginGenericError = "login failure"
     static let createAlertGenericError = "create alert failure"
     
+    static let notificationBellImageName = "notification_bell"
+    
     struct TabBar {
         static let addAlertIconImageName = "add_alert"
         static let alertsIconImageName = "alerts"

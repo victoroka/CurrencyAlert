@@ -10,8 +10,8 @@ import Foundation
 
 struct Utils {
     
-    static func setupIconFor(currency: String) -> String {
-        switch currency {
+    static func setupIconFor(currencyName: String) -> String {
+        switch currencyName {
         case "Dólar Comercial":
             return "US$"
         case "Dólar Turismo":
@@ -33,6 +33,41 @@ struct Utils {
         case "Franco Suíço":
             return "CHF"
         case "Dólar Australiano":
+            return "$"
+        case "Yuan Chinês":
+            return "¥"
+        case "Novo Shekel Israelense":
+            return "₪"
+        case "Ethereum":
+            return "Ξ"
+        case "Ripple":
+            return "XRP"
+        default:
+            return ""
+        }
+    }
+    
+    static func setupIconFor(currencyCode: String) -> String {
+        switch currencyCode {
+        case "USD", "USDT":
+            return "US$"
+        case "CAD":
+            return "C$"
+        case "EUR":
+            return "€"
+        case "GBP":
+            return "£"
+        case "Peso Argentino":
+            return "N$"
+        case "BTC":
+            return "₿"
+        case "Litecoin":
+            return "Ł"
+        case "Iene Japonês":
+            return "¥"
+        case "Franco Suíço":
+            return "CHF"
+        case "AUD":
             return "$"
         case "Yuan Chinês":
             return "¥"

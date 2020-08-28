@@ -151,7 +151,7 @@ extension CurrencyListViewController: UITableViewDataSource {
             currencyViewModel = data[indexPath.row]
         }
         
-        cell.iconLabel.text = Utils.setupIconFor(currency: currencyViewModel.name)
+        cell.iconLabel.text = Utils.setupIconFor(currencyName: currencyViewModel.name)
         cell.nameLabel.text = currencyViewModel.name
         cell.valueLabel.text = "R$ \(currencyViewModel.ask)"
         return cell

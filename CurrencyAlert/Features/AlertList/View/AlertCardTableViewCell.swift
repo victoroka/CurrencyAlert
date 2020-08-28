@@ -24,9 +24,8 @@ final class AlertCardTableViewCell: UITableViewCell {
     
     lazy var currencyIconLabel: UILabel = {
         let label = UILabel()
-        label.text = "$"
         label.layer.masksToBounds = true
-        label.font = UIFont.defaultBold(ofSize: 26)
+        label.font = UIFont.defaultBold(ofSize: 22)
         label.textAlignment = .center
         label.textColor = .white
         label.backgroundColor = UIColor.systemPurple.withAlphaComponent(0.6)
@@ -48,14 +47,22 @@ final class AlertCardTableViewCell: UITableViewCell {
         return label
     }()
     
+    lazy var notificationImageView: UIImageView = {
+        let imageView = UIImageView()
+        let image = UIImage(named: Constants.notificationBellImageName)
+        imageView.image = image?.withTintColor(UIColor.systemOrange.withAlphaComponent(0.8))
+        return imageView
+    }()
+    
     lazy var alertValueLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.textAlignment = .center
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 15
-        label.font = UIFont.defaultBold(ofSize: 16)
+        label.font = UIFont.defaultBold(ofSize: 14)
         label.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.8)
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -95,6 +102,7 @@ extension AlertCardTableViewCell: CodeView {
         cardView.addSubview(dateCreatedLabel)
         cardView.addSubview(alertValueLabel)
         cardView.addSubview(currencyValueLabel)
+        cardView.addSubview(notificationImageView)
         addSubview(cardView)
     }
     
@@ -103,19 +111,19 @@ extension AlertCardTableViewCell: CodeView {
             make.top.equalToSuperview().offset(10)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().inset(20)
-            make.height.equalTo(100)
+            make.height.equalTo(90)
             make.centerX.equalToSuperview()
         }
         
         currencyIconLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(10)
             make.width.equalToSuperview().multipliedBy(0.22)
             make.height.equalTo(cardView.snp.width).multipliedBy(0.22)
             make.centerY.equalToSuperview()
         }
         
         currencyNameLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(15)
+            make.top.equalTo(currencyIconLabel.snp.top)
             make.left.equalTo(currencyIconLabel.snp.right).offset(15)
             make.right.equalToSuperview().inset(20)
             make.height.equalTo(28)
@@ -123,22 +131,28 @@ extension AlertCardTableViewCell: CodeView {
 
         dateCreatedLabel.snp.makeConstraints { (make) in
             make.left.equalTo(currencyIconLabel.snp.right).offset(15)
-            make.bottom.equalToSuperview().inset(15)
+            make.bottom.equalTo(currencyIconLabel.snp.bottom)
             make.right.equalToSuperview().inset(20)
             make.height.equalTo(28)
         }
         
         currencyValueLabel.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview().inset(15)
+            make.bottom.equalTo(currencyIconLabel.snp.bottom)
             make.right.equalToSuperview().inset(20)
             make.height.equalTo(28)
         }
         
         alertValueLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(15)
+            make.top.equalTo(currencyIconLabel.snp.top)
             make.right.equalToSuperview().inset(20)
             make.height.equalTo(30)
             make.width.equalToSuperview().multipliedBy(0.25)
+        }
+        
+        notificationImageView.snp.makeConstraints { (make) in
+            make.right.equalTo(alertValueLabel.snp.left)
+            make.centerY.equalTo(alertValueLabel.snp.centerY)
+            make.height.width.equalTo(alertValueLabel.snp.height).multipliedBy(0.8)
         }
     }
     

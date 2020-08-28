@@ -95,15 +95,16 @@ extension AlertListViewController: UITableViewDataSource {
         guard let data = tableViewData?[indexPath.row] else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: AlertListStrings.cellReuseIdentifier.rawValue, for: indexPath) as! AlertCardTableViewCell
         cell.selectionStyle = .none
+        cell.currencyIconLabel.text = Utils.setupIconFor(currencyCode: data.code)
         cell.currencyNameLabel.text = data.code
         cell.alertValueLabel.text = "R$ \(data.value)"
         cell.currencyValueLabel.text = "R$ \(data.currentCurrencyValue)"
-        cell.dateCreatedLabel.text = "16/06/2020 22:41"
+        cell.dateCreatedLabel.text = data.dateCreated
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 110
     }
 }
 
