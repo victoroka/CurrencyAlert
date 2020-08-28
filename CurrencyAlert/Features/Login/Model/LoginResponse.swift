@@ -12,8 +12,10 @@ import Foundation
 struct LoginResponse: Codable, Error {
     
     let message: String
+    let user: User?
     
     enum CodingKeys: String, CodingKey {
         case message = "message"
+        case user = "user"
     }
 }

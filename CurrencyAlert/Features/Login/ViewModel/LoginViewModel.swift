@@ -31,9 +31,11 @@ final class LoginViewModel {
             guard let loginDelegate = self?.delegate else { return }
             switch result {
             case .success(let response):
+                guard let userInformation = response.user else { return }
                 print(response.message)
                 DispatchQueue.main.async {
                     self?.setupAuthorization(for: user)
+                    self?.setupUserSessionInformation(for: userInformation)
                     loginDelegate.loginSuccess()
                 }
             case .failure(let error):
@@ -48,6 +50,14 @@ final class LoginViewModel {
     private func setupAuthorization(for user: UserLoginViewModel) {
         let auth = "\(user.email):\(user.password)"
         UserDefaults.standard.set(auth.toBase64(), forKey: Constants.AUTH_KEY)
+        UserDefaults.standard.synchronize()
+    }
+    
+    private func setupUserSessionInformation(for userInfo: User) {
+        UserDefaults.standard.set(userInfo.email, forKey: Constants.EMAIL_KEY)
+        UserDefaults.standard.set(userInfo.firstName, forKey: Constants.FIRST_NAME_KEY)
+        UserDefaults.standard.set(userInfo.lastName, forKey: Constants.LAST_NAME_KEY)
+        UserDefaults.standard.set(userInfo.phone, forKey: Constants.PHONE_KEY)
         UserDefaults.standard.synchronize()
     }
 }

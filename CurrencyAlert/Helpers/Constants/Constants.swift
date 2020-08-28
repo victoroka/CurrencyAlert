@@ -15,6 +15,10 @@ struct Constants {
     static let API_SCHEME = "https"
     
     static let AUTH_KEY = "Auth"
+    static let EMAIL_KEY = "Email"
+    static let FIRST_NAME_KEY = "FirstName"
+    static let LAST_NAME_KEY = "LastName"
+    static let PHONE_KEY = "Phone"
     
     static let initFatalErrorDefaultMessage = "init(coder:) has not been implemented"
     static let mappingErrorMessage = "mapping error"

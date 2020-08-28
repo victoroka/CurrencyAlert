@@ -26,7 +26,7 @@ final class NetworkingAPI: NetworkingService {
     func login(user: UserLoginViewModel, _ endpoint: Endpoint, completion: @escaping (Result<LoginResponse, LoginResponse>) -> Void) -> URLSessionDataTask? {
         
         guard let url = endpoint.url else {
-            completion(.failure(LoginResponse(message: Constants.badUrlErrorMessage)))
+            completion(.failure(LoginResponse(message: Constants.badUrlErrorMessage, user: nil)))
             return nil
         }
         
@@ -43,32 +43,34 @@ final class NetworkingAPI: NetworkingService {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
             print(error.localizedDescription)
-            completion(.failure(LoginResponse(message: Constants.mappingErrorMessage)))
+            completion(.failure(LoginResponse(message: Constants.mappingErrorMessage, user: nil)))
         }
         
         let task = session.dataTask(with: request) { (data, response, error) in
             if data == nil {
-                completion(.failure(LoginResponse(message: Constants.emptyResponseErrorMessage)))
+                completion(.failure(LoginResponse(message: Constants.emptyResponseErrorMessage, user: nil)))
             }
             
             let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-            if 200 == statusCode {
+            switch statusCode {
+            case 200:
                 do {
                     let decodedResponseMessage = try JSONDecoder().decode(LoginResponse.self, from: data!)
                     completion(.success(decodedResponseMessage))
                 } catch {
-                    completion(.failure(LoginResponse(message: Constants.mappingErrorMessage)))
+                    completion(.failure(LoginResponse(message: Constants.mappingErrorMessage, user: nil)))
                 }
-            } else if 401 == statusCode {
+            case 401:
                 do {
                     let decodedResponseMessage = try JSONDecoder().decode(LoginResponse.self, from: data!)
-                    completion(.failure(LoginResponse(message: decodedResponseMessage.message)))
+                    completion(.failure(LoginResponse(message: decodedResponseMessage.message, user: nil)))
                 } catch {
-                    completion(.failure(LoginResponse(message: Constants.mappingErrorMessage)))
+                    completion(.failure(LoginResponse(message: Constants.mappingErrorMessage, user: nil)))
                 }
-            } else {
-                completion(.failure(LoginResponse(message: Constants.loginGenericError)))
+            default:
+                completion(.failure(LoginResponse(message: Constants.loginGenericError, user: nil)))
             }
+            
         }
         task.resume()
         

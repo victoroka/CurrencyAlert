@@ -46,6 +46,7 @@
 		8458812024BF98D600CA3841 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */; };
 		8458812224BF9B4300CA3841 /* UserProfileStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458812124BF9B4300CA3841 /* UserProfileStrings.swift */; };
 		8458812424BFC11400CA3841 /* CreateAlertPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458812324BFC11400CA3841 /* CreateAlertPopupView.swift */; };
+		845F816324F936B6002E3303 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F816224F936B6002E3303 /* User.swift */; };
 		848C491224C0F7D500991B1D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C491124C0F7D500991B1D /* UIView+Extension.swift */; };
 		848D2D5724BFD118008919C9 /* AlertRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D2D5624BFD118008919C9 /* AlertRequestResponse.swift */; };
 		848D2D5924BFD16A008919C9 /* CreateAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D2D5824BFD16A008919C9 /* CreateAlertViewModel.swift */; };
@@ -121,6 +122,7 @@
 		8458811F24BF98D600CA3841 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		8458812124BF9B4300CA3841 /* UserProfileStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileStrings.swift; sourceTree = "<group>"; };
 		8458812324BFC11400CA3841 /* CreateAlertPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertPopupView.swift; sourceTree = "<group>"; };
+		845F816224F936B6002E3303 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		848C491124C0F7D500991B1D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		848D2D5624BFD118008919C9 /* AlertRequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRequestResponse.swift; sourceTree = "<group>"; };
 		848D2D5824BFD16A008919C9 /* CreateAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewModel.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				84F29CD224AB865000C69211 /* LoginResponse.swift */,
+				845F816224F936B6002E3303 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845F816324F936B6002E3303 /* User.swift in Sources */,
 				84AA3C2424C0EF3B00E85C47 /* CreateAlertPopupViewModel.swift in Sources */,
 				8429061824A78BD2006CD409 /* UIViewController+Extension.swift in Sources */,
 				842905F924A78BC1006CD409 /* Currency.swift in Sources */,

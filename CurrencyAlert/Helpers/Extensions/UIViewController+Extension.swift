@@ -10,6 +10,15 @@ import UIKit
 
 extension UIViewController {
     
+    func showAlertAndDismiss(with message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: LoginStrings.alertOkButtonLabel.rawValue, style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func presentInFullScreen(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)? = nil) {
         viewController.modalPresentationStyle = .fullScreen
         present(viewController, animated: animated, completion: completion)
