@@ -57,25 +57,25 @@ struct Utils {
             return "€"
         case "GBP":
             return "£"
-        case "Peso Argentino":
+        case "ARS":
             return "N$"
         case "BTC":
             return "₿"
-        case "Litecoin":
+        case "LTC":
             return "Ł"
-        case "Iene Japonês":
+        case "JPY":
             return "¥"
-        case "Franco Suíço":
+        case "CHF":
             return "CHF"
         case "AUD":
             return "$"
-        case "Yuan Chinês":
+        case "CNY":
             return "¥"
-        case "Novo Shekel Israelense":
+        case "ILS":
             return "₪"
-        case "Ethereum":
+        case "ETH":
             return "Ξ"
-        case "Ripple":
+        case "XRP":
             return "XRP"
         default:
             return ""
