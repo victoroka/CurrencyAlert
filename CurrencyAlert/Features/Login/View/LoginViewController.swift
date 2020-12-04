@@ -13,7 +13,7 @@ final class LoginViewController: UIViewController {
     private let viewModel: LoginViewModel
     private var inputFields = [InputField]()
     
-    // MARK: Screen Components
+    // MARK: - Screen Components
     private var labelStack: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
@@ -24,14 +24,14 @@ final class LoginViewController: UIViewController {
     
     private lazy var welcomeLabel: UILabel = {
         let label = UILabel()
-        label.text = LoginStrings.welcomeLabelText.rawValue
+        label.text = StringKeys.loginWelcome.localized
         label.font = UIFont.defaultBold(ofSize: 22)
        return label
     }()
     
     private lazy var signInLabel: UILabel = {
         let label = UILabel()
-        label.text = LoginStrings.signInLabelText.rawValue
+        label.text = StringKeys.loginInputCredentials.localized
         label.font = UIFont.defaultRegular(ofSize: 16)
         return label
     }()
@@ -51,7 +51,7 @@ final class LoginViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = LoginStrings.emailPlaceholder.rawValue
+        textField.placeholder = StringKeys.loginEmail.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .emailAddress
@@ -67,7 +67,7 @@ final class LoginViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = LoginStrings.passwordPlaceholder.rawValue
+        textField.placeholder = StringKeys.loginPassword.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.isSecureTextEntry = true
@@ -79,7 +79,7 @@ final class LoginViewController: UIViewController {
     
     private lazy var signInButton: UIButton = {
         let button = UIButton()
-        button.setTitle(LoginStrings.signInButtonTitle.rawValue, for: .normal)
+        button.setTitle(StringKeys.loginSignIn.localized.uppercased(), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemPurple
         button.titleLabel?.font = UIFont.defaultBold(ofSize: 14)
@@ -97,21 +97,21 @@ final class LoginViewController: UIViewController {
     
     private lazy var dontHaveAnAccountLabel: UILabel = {
         let label = UILabel()
-        label.text = LoginStrings.dontHaveAnAccountLabelText.rawValue
+        label.text = StringKeys.loginDontHaveAnAccount.localized
         label.font = UIFont.defaultRegular(ofSize: 14)
         return label
     }()
     
     private lazy var goToSignUpButton: UIButton = {
         let button = UIButton()
-        button.setTitle(LoginStrings.goToSignUpButtonTitle.rawValue, for: .normal)
+        button.setTitle(StringKeys.loginSignUp.localized.uppercased(), for: .normal)
         button.setTitleColor(.systemPurple, for: .normal)
         button.titleLabel?.font = UIFont.defaultBold(ofSize: 15)
         button.addTarget(self, action: #selector(goToSignUpAction), for: .touchUpInside)
         return button
     }()
     
-    // MARK: View Controller Functions
+    // MARK: - View Controller Functions
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -142,7 +142,7 @@ final class LoginViewController: UIViewController {
     
     private func showAlert(with message: String) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: LoginStrings.alertOkButtonLabel.rawValue, style: .default, handler: nil)
+        let alertAction = UIAlertAction(title: StringKeys.loginOk.localized.uppercased(), style: .default, handler: nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
     }
@@ -163,7 +163,7 @@ final class LoginViewController: UIViewController {
     }
 }
 
-// MARK: Login View Model Delegate
+// MARK: - Login View Model Delegate
 extension LoginViewController: LoginViewModelDelegate {
     
     func loginSuccess() {
@@ -179,7 +179,7 @@ extension LoginViewController: LoginViewModelDelegate {
     
 }
 
-// MARK: UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -187,7 +187,7 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: Code View Protocol
+// MARK: - Code View Protocol
 extension LoginViewController: CodeView {
     
     func buildViewHierarchy() {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: Networking Service Protocol
+// MARK: - Networking Service Protocol
 protocol NetworkingService {
     @discardableResult func login(user: UserLoginViewModel, _ endpoint: Endpoint, completion: @escaping (Result<LoginResponse, LoginResponse>) -> Void) -> URLSessionDataTask?
     @discardableResult func register(user: UserCreateViewModel, _ endpoint: Endpoint, completion: @escaping (Result<CreateAccountResponse, NetworkError>) -> Void) -> URLSessionDataTask?
@@ -21,7 +21,7 @@ protocol NetworkingService {
 final class NetworkingAPI: NetworkingService {
     private let session = URLSession.shared
     
-    // MARK: Login Request
+    // MARK: - Login Request
     @discardableResult
     func login(user: UserLoginViewModel, _ endpoint: Endpoint, completion: @escaping (Result<LoginResponse, LoginResponse>) -> Void) -> URLSessionDataTask? {
         
@@ -31,8 +31,8 @@ final class NetworkingAPI: NetworkingService {
         }
         
         let parameters = [
-            LoginStrings.emailPostProperty.rawValue: user.email,
-            LoginStrings.passwordPostProperty.rawValue: user.password
+            Constants.Parameters.email: user.email,
+            Constants.Parameters.password: user.password
         ]
         
         var request = URLRequest(url: url)
@@ -77,7 +77,7 @@ final class NetworkingAPI: NetworkingService {
         return task
     }
     
-    // MARK: Register Request
+    // MARK: - Register Request
     @discardableResult
     func register(user: UserCreateViewModel, _ endpoint: Endpoint, completion: @escaping (Result<CreateAccountResponse, NetworkError>) -> Void) -> URLSessionDataTask? {
         
@@ -127,7 +127,7 @@ final class NetworkingAPI: NetworkingService {
         return task
     }
     
-    // MARK: Fetch Currencies Request
+    // MARK: - Fetch Currencies Request
     @discardableResult
     func fetchCurrencies(_ endpoint: Endpoint, completion: @escaping (Result<[Currency], NetworkError>) -> Void) -> URLSessionDataTask? {
         
@@ -163,7 +163,7 @@ final class NetworkingAPI: NetworkingService {
         return task
     }
     
-    // MARK: Fetch Alerts Request
+    // MARK: - Fetch Alerts Request
     @discardableResult
     func fetchAlerts(_ endpoint: Endpoint, completion: @escaping (Result<[Alert], NetworkError>) -> Void) -> URLSessionDataTask? {
         
@@ -199,7 +199,7 @@ final class NetworkingAPI: NetworkingService {
         return task
     }
     
-    // MARK: Create Alerts Request
+    // MARK: - Create Alerts Request
     @discardableResult
     func create(alert: CreateAlertViewModel, _ endpoint: Endpoint, completion: @escaping (Result<AlertRequestResponse, AlertRequestResponse>) -> Void) -> URLSessionDataTask? {
         
@@ -255,7 +255,7 @@ final class NetworkingAPI: NetworkingService {
         return task
     }
     
-    // MARK: Delete Request Alerts
+    // MARK: - Delete Request Alerts
     @discardableResult
     func delete(_ endpoint: Endpoint, completion: @escaping (Result<AlertRequestResponse, NetworkError>) -> Void) -> URLSessionDataTask? {
         

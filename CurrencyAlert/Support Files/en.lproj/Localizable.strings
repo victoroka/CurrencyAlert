@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  CurrencyAlert
+
+  Created by Victor Oka on 04/12/20.
+  Copyright © 2020 Alerta Câmbio. All rights reserved.
+*/
+
+// MARK: - Login
+"loginWelcome" = "Welcome!";
+"loginInputCredentials" = "Input your credentials";
+"loginEmail" = "e-mail";
+"loginPassword" = "password";
+"loginSignIn" = "login";
+"loginDontHaveAnAccount" = "Not registered yet?";
+"loginSignUp" = "sign up";
+"loginOk" = "ok";

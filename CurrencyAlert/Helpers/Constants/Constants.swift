@@ -64,4 +64,9 @@ struct Constants {
             static let DELETE = "DELETE"
         }
     }
+    
+    struct Parameters {
+        static let email = "email"
+        static let password = "password"
+    }
 }

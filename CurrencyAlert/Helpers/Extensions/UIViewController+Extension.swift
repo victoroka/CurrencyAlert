@@ -12,7 +12,7 @@ extension UIViewController {
     
     func showAlertAndDismiss(with message: String) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: LoginStrings.alertOkButtonLabel.rawValue, style: .default) { (action) in
+        let alertAction = UIAlertAction(title: StringKeys.loginOk.localized.uppercased(), style: .default) { (action) in
             self.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(alertAction)
