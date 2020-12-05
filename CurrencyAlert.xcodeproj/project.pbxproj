@@ -17,7 +17,6 @@
 		842905F124A78BC1006CD409 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905D724A78BC1006CD409 /* CreateAccountViewModel.swift */; };
 		842905F224A78BC1006CD409 /* UserCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905D824A78BC1006CD409 /* UserCreateViewModel.swift */; };
 		842905F424A78BC1006CD409 /* CreateAccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905DB24A78BC1006CD409 /* CreateAccountResponse.swift */; };
-		842905F524A78BC1006CD409 /* CreateAccountStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905DD24A78BC1006CD409 /* CreateAccountStrings.swift */; };
 		842905F624A78BC1006CD409 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905DE24A78BC1006CD409 /* CreateAccountViewController.swift */; };
 		842905F724A78BC1006CD409 /* AlertListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E124A78BC1006CD409 /* AlertListViewModel.swift */; };
 		842905F824A78BC1006CD409 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E224A78BC1006CD409 /* AlertViewModel.swift */; };
@@ -94,7 +93,6 @@
 		842905D724A78BC1006CD409 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		842905D824A78BC1006CD409 /* UserCreateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCreateViewModel.swift; sourceTree = "<group>"; };
 		842905DB24A78BC1006CD409 /* CreateAccountResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountResponse.swift; sourceTree = "<group>"; };
-		842905DD24A78BC1006CD409 /* CreateAccountStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountStrings.swift; sourceTree = "<group>"; };
 		842905DE24A78BC1006CD409 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		842905E124A78BC1006CD409 /* AlertListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertListViewModel.swift; sourceTree = "<group>"; };
 		842905E224A78BC1006CD409 /* AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
@@ -265,7 +263,6 @@
 		842905DC24A78BC1006CD409 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				842905DD24A78BC1006CD409 /* CreateAccountStrings.swift */,
 				842905DE24A78BC1006CD409 /* CreateAccountViewController.swift */,
 			);
 			path = View;
@@ -683,7 +680,6 @@
 				8429061424A78BD2006CD409 /* NetworkError.swift in Sources */,
 				848D2D5724BFD118008919C9 /* AlertRequestResponse.swift in Sources */,
 				8458811E24BF943C00CA3841 /* Alert.swift in Sources */,
-				842905F524A78BC1006CD409 /* CreateAccountStrings.swift in Sources */,
 				842905FB24A78BC1006CD409 /* AlertListViewController.swift in Sources */,
 				8429060024A78BC1006CD409 /* LoginViewController.swift in Sources */,
 				842905FD24A78BC1006CD409 /* LoginViewModel.swift in Sources */,
