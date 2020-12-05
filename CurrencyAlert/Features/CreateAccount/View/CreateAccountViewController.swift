@@ -30,7 +30,7 @@ final class CreateAccountViewController: UIViewController {
     
     private lazy var createAccountLabel: UILabel = {
         let label = UILabel()
-        label.text = CreateAccountStrings.createAccountLabelText.rawValue
+        label.text = StringKeys.createAccountSignUpTitle.localized
         label.font = UIFont.defaultBold(ofSize: 22)
        return label
     }()
@@ -50,7 +50,7 @@ final class CreateAccountViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.firstNamePlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountFirstName.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .default
@@ -66,7 +66,7 @@ final class CreateAccountViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.lastNamePlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountLastName.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .default
@@ -82,7 +82,7 @@ final class CreateAccountViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.emailPlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountEmail.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .emailAddress
@@ -98,7 +98,7 @@ final class CreateAccountViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.passwordPlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountPassword.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.isSecureTextEntry = true
@@ -112,7 +112,7 @@ final class CreateAccountViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.repeatPasswordPlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountRepeatPassword.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.isSecureTextEntry = true
@@ -126,7 +126,7 @@ final class CreateAccountViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.phonePlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountOptionalCellphone.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .phonePad
@@ -136,7 +136,7 @@ final class CreateAccountViewController: UIViewController {
     
     private lazy var signUpButton: UIButton = {
         let button = UIButton()
-        button.setTitle(CreateAccountStrings.signUpButtonTitle.rawValue, for: .normal)
+        button.setTitle(StringKeys.createAccountSignUp.localized.uppercased(), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemPurple
         button.titleLabel?.font = UIFont.defaultBold(ofSize: 14)
@@ -215,7 +215,7 @@ extension CreateAccountViewController: CreateAccountViewModelDelegate {
     
     func registerSuccess() {
         CustomActivityIndicator.shared.hideProgressView()
-        showAlertAndDismiss(with: CreateAccountStrings.userRegisterSuccessMessage.rawValue)
+        showAlertAndDismiss(with: StringKeys.createAccountUserRegisteredSuccess.localized)
     }
     
     func registerFailure() {

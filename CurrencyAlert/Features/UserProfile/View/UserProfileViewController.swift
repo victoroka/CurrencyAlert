@@ -39,7 +39,7 @@ final class UserProfileViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.firstNamePlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountFirstName.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .default
@@ -55,7 +55,7 @@ final class UserProfileViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.lastNamePlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountLastName.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .default
@@ -71,7 +71,7 @@ final class UserProfileViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.emailPlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountEmail.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .emailAddress
@@ -87,7 +87,7 @@ final class UserProfileViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 14)
-        textField.placeholder = CreateAccountStrings.phonePlaceholder.rawValue
+        textField.placeholder = StringKeys.createAccountOptionalCellphone.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .phonePad

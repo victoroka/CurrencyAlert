@@ -87,11 +87,11 @@ final class NetworkingAPI: NetworkingService {
         }
         
         let parameters = [
-            CreateAccountStrings.emailPostProperty.rawValue: user.email,
-            CreateAccountStrings.passwordPostProperty.rawValue: user.password,
-            CreateAccountStrings.firstNamePostProperty.rawValue: user.firstName,
-            CreateAccountStrings.lastNamePostProperty.rawValue: user.lastName,
-            CreateAccountStrings.phonePostProperty.rawValue: user.phone
+            Constants.Parameters.email: user.email,
+            Constants.Parameters.password: user.password,
+            Constants.Parameters.firstName: user.firstName,
+            Constants.Parameters.lastName: user.lastName,
+            Constants.Parameters.phone: user.phone
         ]
         
         var request = URLRequest(url: url)

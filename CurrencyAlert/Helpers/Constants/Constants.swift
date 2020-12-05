@@ -68,5 +68,8 @@ struct Constants {
     struct Parameters {
         static let email = "email"
         static let password = "password"
+        static let phone = "phone"
+        static let firstName = "first_name"
+        static let lastName = "last_name"
     }
 }

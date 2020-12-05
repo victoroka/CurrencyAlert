@@ -16,6 +16,14 @@ enum StringKeys: String {
          loginSignIn, loginSignUp,
          loginDontHaveAnAccount, loginOk
     
+    // MARK: - Create Account
+    case createAccountSignUpTitle,
+         createAccountFirstName, createAccountLastName,
+         createAccountEmail,
+         createAccountPassword, createAccountRepeatPassword,
+         createAccountOptionalCellphone, createAccountSignUp,
+         createAccountUserRegisteredSuccess
+    
 }
 
 extension StringKeys {

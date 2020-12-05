@@ -15,3 +15,14 @@
 "loginDontHaveAnAccount" = "Not registered yet?";
 "loginSignUp" = "sign up";
 "loginOk" = "ok";
+
+// MARK: - Create Account
+"createAccountSignUpTitle" = "Sign up";
+"createAccountFirstName" = "first name";
+"createAccountLastName" = "last name";
+"createAccountEmail" = "e-mail";
+"createAccountPassword" = "password";
+"createAccountOptionalCellphone" = "cellphone (optional)";
+"createAccountRepeatPassword" = "repeat password";
+"createAccountSignUp" = "register";
+"createAccountUserRegisteredSuccess" = "User registerred!";

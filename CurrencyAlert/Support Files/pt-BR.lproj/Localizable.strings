@@ -15,3 +15,15 @@
 "loginDontHaveAnAccount" = "Ainda não é cadastrado?";
 "loginSignUp" = "cadastre-se";
 "loginOk" = "ok";
+
+
+// MARK: - Create Account
+"createAccountSignUpTitle" = "Cadastre-se";
+"createAccountFirstName" = "primeiro nome";
+"createAccountLastName" = "último nome";
+"createAccountEmail" = "e-mail";
+"createAccountPassword" = "senha";
+"createAccountOptionalCellphone" = "celular (opcional)";
+"createAccountRepeatPassword" = "repita a senha";
+"createAccountSignUp" = "cadastrar";
+"createAccountUserRegisteredSuccess" = "Usuário cadastrado com sucesso!";
