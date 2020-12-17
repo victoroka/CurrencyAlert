@@ -24,6 +24,16 @@ enum StringKeys: String {
          createAccountOptionalCellphone, createAccountSignUp,
          createAccountUserRegisteredSuccess
     
+    // MARK: - Alert List
+    
+    
+    // MARK: - Create Alert
+
+
+    // MARK: - User Profile
+    case userProfileTitle, userProfileLogout,
+         userProfileUpdate
+    
 }
 
 extension StringKeys {

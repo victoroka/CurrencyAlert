@@ -13,7 +13,7 @@ final class UserProfileViewController: UIViewController {
     // MARK: Screen Components
     lazy var logoutButton: UIButton = {
         let button = UIButton()
-        button.setTitle(UserProfileStrings.logoutButtonTitle.rawValue, for: .normal)
+        button.setTitle(StringKeys.userProfileLogout.localized, for: .normal)
         button.setTitleColor(.systemPurple, for: .normal)
         button.backgroundColor = .white
         button.titleLabel?.font = UIFont.defaultBold(ofSize: 14)
@@ -97,7 +97,7 @@ final class UserProfileViewController: UIViewController {
     
     private lazy var updateButton: UIButton = {
         let button = UIButton()
-        button.setTitle(UserProfileStrings.updateButtonTitle.rawValue, for: .normal)
+        button.setTitle(StringKeys.userProfileUpdate.localized.uppercased(), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemPurple
         button.titleLabel?.font = UIFont.defaultBold(ofSize: 14)
@@ -120,7 +120,7 @@ final class UserProfileViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        tabBarController?.navigationItem.title = UserProfileStrings.navigationBarTitle.rawValue
+        tabBarController?.navigationItem.title = StringKeys.userProfileTitle.localized
         tabBarController?.navigationItem.searchController = nil
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple, NSAttributedString.Key.font: UIFont.defaultBold(ofSize: 32)]

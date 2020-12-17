@@ -26,3 +26,14 @@
 "createAccountRepeatPassword" = "repeat password";
 "createAccountSignUp" = "register";
 "createAccountUserRegisteredSuccess" = "User registerred!";
+
+// MARK: - Alert List
+
+
+// MARK: - Create Alert
+
+
+// MARK: - User Profile
+"userProfileTitle" = "profile";
+"userProfileLogout" = "Logout";
+"userProfileUpdate" = "update";
