@@ -10,6 +10,7 @@ import Foundation
 
 struct Constants {
     
+    // MARK: - General
     static let API_KEY = "Dy5QBxdJxM7DFL6uVnQhM1bpoqVruLxP4BkJ5lEc"
     static let API_HOST = "jl4jljallk.execute-api.us-east-1.amazonaws.com"
     static let API_SCHEME = "https"
@@ -30,6 +31,7 @@ struct Constants {
     
     static let notificationBellImageName = "notification_bell"
     
+    // MARK: - TabBar
     struct TabBar {
         static let addAlertIconImageName = "add_alert"
         static let alertsIconImageName = "alerts"
@@ -38,6 +40,7 @@ struct Constants {
         static let profileItemTitle = "perfil"
     }
     
+    // MARK: - Request
     struct Request {
         static let apiHeaderField = "x-api-key"
         static let authorizationHeaderField = "Authorization"
@@ -65,11 +68,20 @@ struct Constants {
         }
     }
     
+    // MARK: - Parameters
     struct Parameters {
         static let email = "email"
         static let password = "password"
         static let phone = "phone"
         static let firstName = "first_name"
         static let lastName = "last_name"
+        static let code = "code"
+        static let alertValue = "alert_value"
+        static let currentValue = "current_value"
+    }
+    
+    // MARK: - Cell Identifiers
+    struct CellIdentifiers {
+        static let currencyCell = "currencyCell"
     }
 }

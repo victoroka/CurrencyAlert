@@ -26,7 +26,7 @@ final class CurrencyListViewController: UIViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = CreateAlertStrings.searchBarPlaceholder.rawValue
+        searchController.searchBar.placeholder = StringKeys.createAlertSearch.localized
         searchController.searchBar.sizeToFit()
         searchController.searchBar.searchBarStyle = .prominent
         return searchController
@@ -70,11 +70,11 @@ final class CurrencyListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
-        tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CreateAlertStrings.cellReuseIdentifier.rawValue)
+        tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.currencyCell)
     }
     
     private func setupNavigationBar() {
-        tabBarController?.navigationItem.title = CreateAlertStrings.navigationBarTitle.rawValue
+        tabBarController?.navigationItem.title = StringKeys.createAlertTitle.localized
         tabBarController?.navigationItem.searchController = searchController
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple, NSAttributedString.Key.font: UIFont.defaultBold(ofSize: 32)]
@@ -141,7 +141,7 @@ extension CurrencyListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let data = tableViewData else { return UITableViewCell() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: CreateAlertStrings.cellReuseIdentifier.rawValue, for: indexPath) as! CurrencyTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.currencyCell, for: indexPath) as! CurrencyTableViewCell
         cell.selectionStyle = .gray
         
         let currencyViewModel: CurrencyViewModel

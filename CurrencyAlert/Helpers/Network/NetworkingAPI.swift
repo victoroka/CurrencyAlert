@@ -209,9 +209,9 @@ final class NetworkingAPI: NetworkingService {
         }
         
         let parameters: [String : Any] = [
-            CreateAlertStrings.codePostProperty.rawValue: alert.code,
-            CreateAlertStrings.currentCurrencyValuePostProperty.rawValue: alert.currentCurrencyValue,
-            CreateAlertStrings.valuePostProperty.rawValue: alert.value
+            Constants.Parameters.code: alert.code,
+            Constants.Parameters.currentValue: alert.currentCurrencyValue,
+            Constants.Parameters.alertValue: alert.value
         ]
         
         var request = URLRequest(url: url)

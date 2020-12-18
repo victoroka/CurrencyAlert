@@ -32,7 +32,14 @@
 
 
 // MARK: - Create Alert
-
+"createAlertTitle" = "selecione a moeda";
+"createAlertClose" = "fechar";
+"createAlertNotify" = "avisar";
+"createAlertDefaultInputCurrencyCode" = "R$";
+"createAlertValuePlaceholder" = "0,00";
+"createAlertMessagePrefix" = "Me avise quando";
+"createAlertMessageSufix" = "chegar a:";
+"createAlertSearch" = "Procurar";
 
 // MARK: - User Profile
 "userProfileTitle" = "perfil";

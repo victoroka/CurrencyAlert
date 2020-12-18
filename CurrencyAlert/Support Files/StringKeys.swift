@@ -28,7 +28,11 @@ enum StringKeys: String {
     
     
     // MARK: - Create Alert
-
+    case createAlertTitle, createAlertClose,
+         createAlertNotify, createAlertDefaultInputCurrencyCode,
+         createAlertValuePlaceholder,
+         createAlertMessagePrefix, createAlertMessageSufix,
+         createAlertSearch
 
     // MARK: - User Profile
     case userProfileTitle, userProfileLogout,

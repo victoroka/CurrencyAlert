@@ -51,7 +51,6 @@
 		84946F9124D59DC90053B585 /* TableAnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84946F9024D59DC90053B585 /* TableAnimationFactory.swift */; };
 		84946F9324D5A37C0053B585 /* Tables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84946F9224D5A37C0053B585 /* Tables.swift */; };
 		84A38F3E24BE8954007BDAB4 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */; };
-		84A38F4024BE8A97007BDAB4 /* CreateAlertStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */; };
 		84A38F4324BE9C7D007BDAB4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A38F4224BE9C7D007BDAB4 /* Utils.swift */; };
 		84AA3C2424C0EF3B00E85C47 /* CreateAlertPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA3C2324C0EF3B00E85C47 /* CreateAlertPopupViewModel.swift */; };
 		84AFC372257AB02D003C3DC4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84AFC374257AB02D003C3DC4 /* Localizable.strings */; };
@@ -126,7 +125,6 @@
 		84946F9024D59DC90053B585 /* TableAnimationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAnimationFactory.swift; sourceTree = "<group>"; };
 		84946F9224D5A37C0053B585 /* Tables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tables.swift; sourceTree = "<group>"; };
 		84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
-		84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertStrings.swift; sourceTree = "<group>"; };
 		84A38F4224BE9C7D007BDAB4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		84AA3C2324C0EF3B00E85C47 /* CreateAlertPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertPopupViewModel.swift; sourceTree = "<group>"; };
 		84AFC35F257AAF14003C3DC4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -416,7 +414,6 @@
 			isa = PBXGroup;
 			children = (
 				8458812324BFC11400CA3841 /* CreateAlertPopupView.swift */,
-				84A38F3F24BE8A97007BDAB4 /* CreateAlertStrings.swift */,
 				84F4DEA024B4F6CF005D99B2 /* CurrencyListViewController.swift */,
 				84A38F3D24BE8954007BDAB4 /* CurrencyTableViewCell.swift */,
 			);
@@ -693,7 +690,6 @@
 				84946F9124D59DC90053B585 /* TableAnimationFactory.swift in Sources */,
 				8458812024BF98D600CA3841 /* CurrencyViewModel.swift in Sources */,
 				842905F224A78BC1006CD409 /* UserCreateViewModel.swift in Sources */,
-				84A38F4024BE8A97007BDAB4 /* CreateAlertStrings.swift in Sources */,
 				8429061524A78BD2006CD409 /* Endpoint.swift in Sources */,
 				842905F124A78BC1006CD409 /* CreateAccountViewModel.swift in Sources */,
 				8429061324A78BD2006CD409 /* NetworkingAPI.swift in Sources */,

@@ -30,7 +30,7 @@ final class CreateAlertPopupView: UIView {
     
     lazy var closeButton: UIButton = {
         let button = UIButton()
-        button.setTitle(CreateAlertStrings.closeButtonTitle.rawValue, for: .normal)
+        button.setTitle(StringKeys.createAlertClose.localized, for: .normal)
         button.setTitleColor(.systemPurple, for: .normal)
         button.titleLabel?.font = UIFont.defaultBold(ofSize: 14)
         button.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
@@ -57,7 +57,7 @@ final class CreateAlertPopupView: UIView {
     
     lazy var currencyCodeLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = CreateAlertStrings.defaultinputCurrencyCode.rawValue
+        label.text = StringKeys.createAlertDefaultInputCurrencyCode.localized
         label.font = UIFont.defaultBold(ofSize: 20)
         label.tintColor = .black
         label.numberOfLines = 0
@@ -71,7 +71,7 @@ final class CreateAlertPopupView: UIView {
         textField.borderStyle = .none
         textField.layer.cornerRadius = 6
         textField.font = UIFont.defaultRegular(ofSize: 20)
-        textField.placeholder = CreateAlertStrings.valueInputPlaceholder.rawValue
+        textField.placeholder = StringKeys.createAlertValuePlaceholder.localized
         textField.setLeftPaddingPoints(15)
         textField.setRightPaddingPoints(15)
         textField.keyboardType = .numberPad
@@ -82,7 +82,7 @@ final class CreateAlertPopupView: UIView {
     
     private lazy var createAlertButton: UIButton = {
         let button = UIButton()
-        button.setTitle(CreateAlertStrings.createAlertButtonTitle.rawValue, for: .normal)
+        button.setTitle(StringKeys.createAlertNotify.localized, for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemPurple
         button.titleLabel?.font = UIFont.defaultBold(ofSize: 16)
@@ -98,7 +98,7 @@ final class CreateAlertPopupView: UIView {
         createAlertPopupViewModel = viewModel
         super.init(frame: frame)
         self.frame = UIScreen.main.bounds
-        messageLabel.text = "\(CreateAlertStrings.messageLabelPrefix.rawValue)\n\(name) \(CreateAlertStrings.messageLabelSufix.rawValue)"
+        messageLabel.text = "\(StringKeys.createAlertMessagePrefix.localized)\n\(name) \(StringKeys.createAlertMessageSufix.localized)"
         setupView()
         setupViewModel()
         setupInputField()
