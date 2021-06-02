@@ -52,11 +52,11 @@ final class AlertListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.register(AlertCardTableViewCell.self, forCellReuseIdentifier: AlertListStrings.cellReuseIdentifier.rawValue)
+        tableView.register(AlertCardTableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.alertCell)
     }
     
     private func setupNavigationBar() {
-        tabBarController?.navigationItem.title = AlertListStrings.navigationBarTitle.rawValue
+        tabBarController?.navigationItem.title = StringKeys.alertListTitle.localized
         tabBarController?.navigationItem.searchController = nil
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPurple, NSAttributedString.Key.font: UIFont.defaultBold(ofSize: 32)]
@@ -93,7 +93,7 @@ extension AlertListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let data = tableViewData?[indexPath.row] else { return UITableViewCell() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: AlertListStrings.cellReuseIdentifier.rawValue, for: indexPath) as! AlertCardTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.alertCell, for: indexPath) as! AlertCardTableViewCell
         cell.selectionStyle = .none
         cell.currencyIconLabel.text = Utils.setupIconFor(currencyCode: data.code)
         cell.currencyNameLabel.text = data.code

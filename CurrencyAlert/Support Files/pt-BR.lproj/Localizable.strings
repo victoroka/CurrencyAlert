@@ -29,7 +29,7 @@
 "createAccountUserRegisteredSuccess" = "Usuário cadastrado com sucesso!";
 
 // MARK: - Alert List
-
+"alertListTitle" = "alertas";
 
 // MARK: - Create Alert
 "createAlertTitle" = "selecione a moeda";

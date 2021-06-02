@@ -83,5 +83,6 @@ struct Constants {
     // MARK: - Cell Identifiers
     struct CellIdentifiers {
         static let currencyCell = "currencyCell"
+        static let alertCell = "alertCell"
     }
 }

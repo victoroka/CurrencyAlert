@@ -28,7 +28,7 @@
 "createAccountUserRegisteredSuccess" = "User registerred!";
 
 // MARK: - Alert List
-
+"alertListTitle" = "alerts";
 
 // MARK: - Create Alert
 "createAlertTitle" = "select a currency";

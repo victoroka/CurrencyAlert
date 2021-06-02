@@ -25,7 +25,7 @@ enum StringKeys: String {
          createAccountUserRegisteredSuccess
     
     // MARK: - Alert List
-    
+    case alertListTitle
     
     // MARK: - Create Alert
     case createAlertTitle, createAlertClose,

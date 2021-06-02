@@ -23,7 +23,6 @@
 		842905F924A78BC1006CD409 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E424A78BC1006CD409 /* Currency.swift */; };
 		842905FA24A78BC1006CD409 /* AlertCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E624A78BC1006CD409 /* AlertCardTableViewCell.swift */; };
 		842905FB24A78BC1006CD409 /* AlertListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E724A78BC1006CD409 /* AlertListViewController.swift */; };
-		842905FC24A78BC1006CD409 /* AlertListStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905E824A78BC1006CD409 /* AlertListStrings.swift */; };
 		842905FD24A78BC1006CD409 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905EB24A78BC1006CD409 /* LoginViewModel.swift */; };
 		842905FE24A78BC1006CD409 /* UserLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905EC24A78BC1006CD409 /* UserLoginViewModel.swift */; };
 		8429060024A78BC1006CD409 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842905F024A78BC1006CD409 /* LoginViewController.swift */; };
@@ -97,7 +96,6 @@
 		842905E424A78BC1006CD409 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		842905E624A78BC1006CD409 /* AlertCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertCardTableViewCell.swift; sourceTree = "<group>"; };
 		842905E724A78BC1006CD409 /* AlertListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertListViewController.swift; sourceTree = "<group>"; };
-		842905E824A78BC1006CD409 /* AlertListStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertListStrings.swift; sourceTree = "<group>"; };
 		842905EB24A78BC1006CD409 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		842905EC24A78BC1006CD409 /* UserLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewModel.swift; sourceTree = "<group>"; };
 		842905F024A78BC1006CD409 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 			children = (
 				842905E624A78BC1006CD409 /* AlertCardTableViewCell.swift */,
 				842905E724A78BC1006CD409 /* AlertListViewController.swift */,
-				842905E824A78BC1006CD409 /* AlertListStrings.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -694,7 +691,6 @@
 				842905F124A78BC1006CD409 /* CreateAccountViewModel.swift in Sources */,
 				8429061324A78BD2006CD409 /* NetworkingAPI.swift in Sources */,
 				84946F9324D5A37C0053B585 /* Tables.swift in Sources */,
-				842905FC24A78BC1006CD409 /* AlertListStrings.swift in Sources */,
 				84F29CD324AB865000C69211 /* LoginResponse.swift in Sources */,
 				842905F424A78BC1006CD409 /* CreateAccountResponse.swift in Sources */,
 				8429061624A78BD2006CD409 /* UIFont+Extension.swift in Sources */,
