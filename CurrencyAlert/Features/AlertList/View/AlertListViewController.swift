@@ -52,7 +52,7 @@ final class AlertListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.register(AlertCardTableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.alertCell)
+        tableView.register(cellType: AlertCardTableViewCell.self)
     }
     
     private func setupNavigationBar() {
@@ -93,7 +93,7 @@ extension AlertListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let data = tableViewData?[indexPath.row] else { return UITableViewCell() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.alertCell, for: indexPath) as! AlertCardTableViewCell
+        let cell = tableView.dequeue(cell: AlertCardTableViewCell.self, indexPath: indexPath)
         cell.selectionStyle = .none
         cell.currencyIconLabel.text = Utils.setupIconFor(currencyCode: data.code)
         cell.currencyNameLabel.text = data.code

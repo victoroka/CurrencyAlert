@@ -70,7 +70,7 @@ final class CurrencyListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
-        tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifiers.currencyCell)
+        tableView.register(cellType: CurrencyTableViewCell.self)
     }
     
     private func setupNavigationBar() {
@@ -141,7 +141,7 @@ extension CurrencyListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let data = tableViewData else { return UITableViewCell() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.currencyCell, for: indexPath) as! CurrencyTableViewCell
+        let cell = tableView.dequeue(cell: CurrencyTableViewCell.self, indexPath: indexPath)
         cell.selectionStyle = .gray
         
         let currencyViewModel: CurrencyViewModel
